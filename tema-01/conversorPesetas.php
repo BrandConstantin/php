@@ -14,7 +14,7 @@ convertir deberá estar almacenada en una variable
             $unEuros = 166;
             $conversor = $pesetas / $unEuros;
             
-            echo '<p> Los 34566788 pesetas son ', $conversor, ' euros</p>';
+            echo '<p> Los 34566788 pesetas son ', round($conversor, 2), ' euros</p>';
         ?>
     </body>
 </html>
