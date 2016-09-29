@@ -20,13 +20,13 @@ adivinar número
                 echo 'Enhorabuena has adivinado';
             }else{
                 if($oportunidades == 0){
-                    echo 'Lo siento, se te han acabado las oportunidades';
+                    echo 'Lo siento, se te han acabado las oportunidades<br>';
                 }else{
                     if($numIntrod != 555){
                         if($numSecreto > $numIntrod){
-                            echo 'El número es mayor que el introducido';
+                            echo 'El número es mayor que el introducido<br>';
                         }else{
-                            echo 'El número es menor que el introducido';
+                            echo 'El número es menor que el introducido<br>';
                         }
                     }
                     ?>
