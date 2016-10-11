@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+Realiza el control de acceso a una caja fuerte. La combinación será un número de 4 cifras. El
+programa nos pedirá la combinación para abrirla. Si no acertamos, se nos mostrará el mensaje
+“Lo siento, esa no es la combinación” y si acertamos se nos dirá “La caja fuerte se ha abierto
+satisfactoriamente”. Tendremos cuatro oportunidades para abrir la caja fuerte.
+-->
+<html>
+    <head>
+        <title>Acceso caja fuerte</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Abre al caja fuerte!</h1>
+        <p>(tienes 4 oportunidades)</p>
+        <hr style="border-style: dotted 1px #f34">
+        <div>
+            <form action="cajaFuerte.php" method="post">
+                <input type="hidden" name="numAcceso" min="1000" max="9999">
+                <!--Se inicializa solo de forma abritaria con el valor 222, luego
+                el valor se pierde-->
+                <input type="hidden" name="oportunidades" value="4">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </body>
+</html>
