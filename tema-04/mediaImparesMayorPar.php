@@ -23,12 +23,15 @@ en el cómputo.
             $totalImpares = $_POST['totalImpares'];
             $mayorPar = $_POST['mayorPar'];
             
+            //formula para ver los valores que envia el formulario
+            //var_dump(get_defined_vars());
+            
             //se inicializan
             if(!isset($num)){
                 $contarNumeros = 0;
                 $totalImpares = 0;
                 $sumaImpares = 0;
-                $mayorPar = -PHP_INT_MIN;
+                $mayorPar = -2;
             }
             
             if ($num > 0){
@@ -37,11 +40,11 @@ en el cómputo.
                 if (($num % 2) == 0){
                     if ($num > $mayorPar){
                         $mayorPar = $num;
-                    }else{
+                    }
+                }else{
                         $totalImpares++;
                         $sumaImpares += $num;
                     }
-                }
             }
             
             if((!isset($num)) || ($num > 0)){
@@ -49,19 +52,22 @@ en el cómputo.
         <form action="mediaImparesMayorPar.php" method="post">
             <p>Introduce número:</p>
             <input type="number" name="num" autofocus ><br>
-            <input type="hidden" name="contarNumeros" value="<?php $contarNumeros; ?>"><br>
-            <input type="hidden" name="sumaImpares" value="<?php $sumaImpares; ?>"><br>
-            <input type="hidden" name="totalImpares" value="<?php $totalImpares; ?>"><br>
-            <input type="hidden" name="mayorPar" value="<?php $mayorPar; ?>"><br>
+            <input type="hidden" name="contarNumeros" value="<?= $contarNumeros; ?>"><br>
+            <input type="hidden" name="sumaImpares" value="<?= $sumaImpares; ?>"><br>
+            <input type="hidden" name="totalImpares" value="<?= $totalImpares; ?>"><br>
+            <input type="hidden" name="mayorPar" value="<?= $mayorPar; ?>"><br>
             <input type="submit" value="Aceptar">
         </form>
+            
         <p>(El programa finaliza introduciendo un número negativo)</p>
         <?php
             }
             
             if($num < 0){
+                $media = $sumaImpares / $totalImpares;
+                
                 echo "Se han introducido un total de ", $contarNumeros, " números <br>";
-                echo "La media de los impares es '.($sumaImpares / $totalImpares).'<br>";
+                echo "La media de los impares es ", $media, "<br>";
                 echo "El mayor de los pares es $mayorPar";
             }
         ?>
