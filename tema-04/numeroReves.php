@@ -13,19 +13,29 @@ Realiza un programa que pida un número por teclado y que luego muestre ese núm
         <hr style="border-style: dotted 1px #f34">
 
         <div id="content">
-            <form action="numeroReves.php" method="post">
-            <p>Introduce altura:</p>
-            <input type="number" name="num" autofocus ><br>
-            <input type="submit" value="Aceptar">
-        </form>
         <?php
             $num = $_POST['num'];
             
             if(!isset($num)){
-                $num = 0;
+        ?>
+            <form action="numeroReves.php" method="post">
+                <p>Introduce número:</p>
+                <input type="number" name="num" autofocus="" required=""><br>
+                <input type="submit" value="Aceptar">
+            </form>
+        <?php
             }
             
+            $volteado = 0;
+            $numero = $num;
             
+            while($numero > 0){
+                $volteado = ($volteado * 10) + ($numero % 10);
+                $numero = floor($numero / 10);
+            }
+            
+            echo "Número: $num <br>";
+            echo "Volteado: $volteado";
         ?>
         </div>   
     </body>
