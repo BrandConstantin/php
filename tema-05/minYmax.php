@@ -16,9 +16,21 @@ junto con las palabras “máximo” y “mínimo” al lado del máximo y del m
             
             if(!isset($numero)){
                 $contadorNumero = 0;
-                $numeroTexto = "";
+                $numeroTexto = " ";
             }
-            
+ 
+            if(($contadorNumero < 10) || (!isset($numero))){
+        ?>
+        <form action="minYmax.php" method="post">
+            Introduzca un número:
+            <input type="number" name ="numero" autofocus>
+            <input type="hidden" name="contadorNumeros" value="<?= $contadorNumeros ?>">
+            <input type="hidden" name="numeroTexto" value="<?= $numeroTexto." ".$n ?>">
+            <input type="submit" value="OK">
+          </form>
+        <?php
+            }   
+                       
             if($contadorNumero == 10){
                 //quitar el ultimo número 
                 $numeroTexto = $numeroTexto." ".$numero;
@@ -50,17 +62,6 @@ junto con las palabras “máximo” y “mínimo” al lado del máximo y del m
                 }
             }
             
-            if(($contadorNumero < 10) || (!isset($numero))){
-        ?>
-        <form action="minYmax.php" method="get">
-            Introduzca un número:
-            <input type="number" name ="numero" autofocus>
-            <input type="hidden" name="contadorNumeros" value="<?= ++$contadorNumeros ?>">
-            <input type="hidden" name="numeroTexto" value="<?= $numeroTexto . " " . $n ?>">
-            <input type="submit" value="OK">
-          </form>
-        <?php
-            }
         ?>
     </body>
 </html>
