@@ -16,106 +16,102 @@ el array resultante.
             if (!isset($_GET['numero'])) {
                 $contadorNumeros = 1;
                 $numeroTexto = "";
-            }else{
+            } else {
                 $contadorNumeros = $_GET['contadorNumeros'];
                 $numeroTexto = $_GET['numeroTexto'];
             }
 
-            if ($contadorNumeros < 5) {
-                $contadorNumeros = $_GET['contadorNumero'];
+            if ($contadorNumeros < 6) {
+                $contadorNumeros = $_GET['contadorNumeros'];
                 $numero = $_GET['numero'];
                 $numeroTexto = $_GET['numeroTexto'];
-                
-                if($numeroTexto == ""){
-                    $numeroTexto = $numero;
-                }else{
-                    $numeroTexto = $numeroTexto." ".$numero;
-                }
-            }
-            
-            //formulario
-            if (($contadorNumeros < 5) || (!isset($_GET['numero']))) {
-        ?>
-            <form action="primosPrimeraPosicion.php" method="get">
-                Introduzca un número:
-                <input type="number" name ="numero" autofocus>
-                <input type="hidden" name="contadorNumeros" value="<?php ++$contadorNumeros; ?>">
-                <input type="hidden" name="numeroTexto" value="<?php $numeroTexto; ?>">
-                <input type="submit" value="OK">
-            </form>
-        <?php
-            }
-            
-            if($contadorNumeros == 6){
-                $valor = explode(" ", $numeroTexto);
-                
-                // Muestra el array original
-                echo "Array:<br>";
-                echo "<table><tr>";
 
+                if ($numeroTexto == "") {
+                    $numeroTexto = $numero;
+                } else {
+                    $numeroTexto = $numeroTexto.' '.$numero;
+                }
+
+                $contadorNumeros++;
+            }
+
+            if (!isset($_GET['numero']) || ($contadorNumeros < 6)) {
+            ?>
+                <form action="primosPrimeraPosicion.php" method="get">
+                    Introduzca un número:
+                    <input type="number" name ="numero" autofocus="" required="">
+                    <input type="hidden" name="contadorNumeros" value="<?php echo $contadorNumeros; ?>">
+                    <input type="hidden" name="numeroTexto" value="<?php echo $numeroTexto; ?>">
+                    <input type="submit" value="OK">
+                </form>
+            <?php
+            }
+
+            if ($contadorNumeros == 6) {
+                $valor = explode(" ", $numeroTexto);
+
+                // Muestra el array original
+                echo "Array original:<br>";
+                echo "<table><tr>";
                 for ($i = 0; $i < 5; $i++) {
                     echo "<td>$i</td>";
                 }
-
                 echo "</tr><tr>";
 
                 for ($i = 0; $i < 5; $i++) {
                     echo "<td>".$valor[$i]."</td>";
                 }
-
                 echo "</tr></table>";
-            }     
-            
-            //contar los pares e impares
-            $cuentaPrimos = 0;
-            $cuentaNoPrimos = 0;
 
-            for($i = 0; $i < 5; $i++) {
-                $esPrimo = true;
+                // diferenciar los primos de no primos
+                $cuentaPrimos = 0;
+                $cuentaNoPrimos = 0;
 
-                for($j = 2; $j < $numero[$i]; $j++) {
-                    if(($numero[$i] % $j) == 0){
+                for ($i = 0; $i < 5; $i++) {
+                    $esPrimo = true;
+
+                    for ($j = 2; $j < $valor[$i]; $j++) {
+                        if (($valor[$i] % $j) == 0) {
                         $esPrimo = false;
+                        }
+                    }
+
+                    if ($esPrimo) {
+                        $primos[$cuentaPrimos] = $valor[$i];
+                        $cuentaPrimos++;
+                    } else {
+                        $noPrimos[$cuentaNoPrimos] = $valor[$i];
+                        $cuentaNoPrimos++;
                     }
                 }
 
-                if ($esPrimo) {
-                    $primos[$cuentaPrimos] = $numero[$i];
-                    $cuentaPrimos++;
-                } else {
-                    $noPrimos[$cuentaNoPrimos] = $numero[$i];
-                    $cuentaNoPrimos++;
+                // guardar los datos en el array original
+
+                for ($i = 0; $i < $cuentaPrimos; $i++) {
+                    $valor[$i] = $primos[$i];
                 }
-            }
-            
-            //modificar el array poniendo los primos por delante
-            for($i = 0; $i < $cuentaPrimos; $i++){
-                $numero[$i] = $primos[$i];
-            }
-            
-            for($i = $cuentaPrimos; $i < $cuentaPrimos + $cuentaNoPrimos; $i++){
-                $numero[$i] = $noPrimos[$i - $cuentaPrimos];
-            }
-            
-            // Muestra el array con primos y no primos
-            echo "<br>Array con primos por delante:<br>";
-            echo "<table><tr>";
 
-            for ($i = 0; $i < 5; $i++) {
-                echo "<td>$i</td>";
-            }
-
-            echo "</tr><tr>";
-
-            for ($i = 0; $i < 5; $i++) {
-                if($numero[$i] == $primos[$i]){
-                    echo "<span style=\"color: green;\">$numero[$i]&nbsp;&nbsp;</span>";
-                }else{
-                    echo "<span style=\"color: red;\">$numero[$i]&nbsp;&nbsp;</span>";
+                for ($i = $cuentaPrimos; $i < $cuentaPrimos + $cuentaNoPrimos; $i++) {
+                    $valor[$i] = $noPrimos[$i - $cuentaPrimos];
                 }
-            }
 
-            echo "</tr></table>";
+                // Muestra el array resultante
+                echo "<br>Array resultante:<br>";
+                echo "<table><tr>";
+                for ($i = 0; $i < 5; $i++) {
+                    echo "<td>$i</td>";
+                }
+                echo "</tr><tr>";
+
+                for ($i = 0; $i < 5; $i++) {
+                    if($valor[$i] == $primos[$i]){
+                        echo "<td><span style=\"color: green;\">$valor[$i]&nbsp;&nbsp;</span></td>";
+                    }else{
+                        echo "<td><span style=\"color: red;\">$valor[$i]&nbsp;&nbsp;</span></td>";
+                    }
+                }
+                echo "</tr></table>";
+            }
         ?>
     </body>
 </html>

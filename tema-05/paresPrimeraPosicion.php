@@ -68,9 +68,9 @@ si es necesario.
 
             for ($i = 0; $i < 20; $i++) {
                 if($numero[$i] == $pares[$i]){
-                    echo "<span style=\"color: green;\">$numero[$i]&nbsp;&nbsp;</span>";
+                    echo "<td><span style=\"color: green;\">$numero[$i]&nbsp;&nbsp;</span></td>";
                 }else{
-                    echo "<span style=\"color: red;\">$numero[$i]&nbsp;&nbsp;</span>";
+                    echo "<td><span style=\"color: red;\">$numero[$i]&nbsp;&nbsp;</span></td>";
                 }
             }
 
