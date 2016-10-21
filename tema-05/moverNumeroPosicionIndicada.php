@@ -9,124 +9,135 @@ el array resultante.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pares primera posición</title>
+        <title>Mover número a una posición indicada</title>
     </head>
     <body>     
-        <?php
-            if (!isset($_GET['numero'])) {
-                $contadorNumeros = 1;
-                $numeroTexto = "";
+    <?php
+        if (!isset($_GET['numero'])) {
+            $contadorNumeros = 1;
+            $numeroTexto = "";
+        } else {
+            $contadorNumeros = $_GET['contadorNumeros'];
+            $numeroTexto = $_GET['numeroTexto'];
+        }
+
+        if ($contadorNumeros < 11) {
+            $contadorNumeros = $_GET['contadorNumeros'];
+            $numero = $_GET['numero'];
+            $numeroTexto = $_GET['numeroTexto'];
+
+            if ($numeroTexto == "") {
+                $numeroTexto = $numero;
             } else {
-                $contadorNumeros = $_GET['contadorNumeros'];
-                $numeroTexto = $_GET['numeroTexto'];
+                $numeroTexto = $numeroTexto.' '.$numero;
             }
 
-            if ($contadorNumeros < 6) {
-                $contadorNumeros = $_GET['contadorNumeros'];
-                $numero = $_GET['numero'];
-                $numeroTexto = $_GET['numeroTexto'];
+            $contadorNumeros++;
+        }
 
-                if ($numeroTexto == "") {
-                    $numeroTexto = $numero;
-                } else {
-                    $numeroTexto = $numeroTexto.' '.$numero;
-                }
+        if (!isset($_GET['numero']) || ($contadorNumeros < 11)) {
+        ?>
+          <form action="moverNumeroPosicionIndicada.php" method="get">
+            Introduzca un número:
+            <input type="number" name ="numero" autofocus="" required="">
+            <input type="hidden" name="contadorNumeros" value="<?php echo $contadorNumeros; ?>">
+            <input type="hidden" name="numeroTexto" value="<?php echo $numeroTexto; ?>">
+            <input type="submit" value="OK">
+          </form>
+        <?php
+        }
 
-                $contadorNumeros++;
+        // pedir posición inicial y final
+        if ($contadorNumeros == 11) {
+            $valor = explode(" ", $numeroTexto);
+
+            // Muestra el array original
+            echo "Array original:<br>";
+            echo "<table><tr>";
+
+            for ($i = 0; $i < 10; $i++) {
+                echo "<td>$i</td>";
             }
 
-            if (!isset($_GET['numero']) || ($contadorNumeros < 6)) {
-            ?>
-                <form action="moverNumeroPosicionIndicada.php" method="get">
-                    Introduzca un número:
-                    <input type="number" name ="numero" autofocus="" required="">
-                    <input type="hidden" name="contadorNumeros" value="<?php echo $contadorNumeros; ?>">
-                    <input type="hidden" name="numeroTexto" value="<?php echo $numeroTexto; ?>">
-                    <input type="submit" value="OK">
-                </form>
-            <?php
-            }
+            echo "</tr><tr>";
 
-            if ($contadorNumeros == 6) {
+            for ($i = 0; $i < 10; $i++) {
+                echo "<td>".$valor[$i]."</td>";
+            }
+          
+            echo "</tr></table>";
+
+            // pedir las posiciones inicial y final
+        ?>
+            <form action="moverNumeroPosicionIndicada.php" method="get">
+                Posición inicial: <input type="number" name="inicial" autofocus="" min="0" max="9" required=""><br>
+                Posición final: <input type="number" name="final" min="0" max="9" required=""><br>
+                <input type="hidden" name="contadorNumeros" value="13">
+                <input type="hidden" name="numeroTexto" value="<?php echo $numeroTexto; ?>">
+                <input type="hidden" name="n" value="basura">
+                <input type="submit" value="OK">
+            </form>
+        <?php
+        }
+
+        // introducir los números y las posiciones inicial y final
+        if ($contadorNumeros == 13) {
+            $inicial = $_GET['inicial'];
+            $final = $_GET['final'];
+
+            if (($inicial >= $final) || ($inicial < 0) || ($inicial > 9) || ($final < 0) || ($final > 9)) {
+                echo 'Los datos introducidos no son correctos';
+            } else {
                 $valor = explode(" ", $numeroTexto);
 
                 // Muestra el array original
                 echo "Array original:<br>";
                 echo "<table><tr>";
-                for ($i = 0; $i < 5; $i++) {
+                
+                for ($i = 0; $i < 10; $i++) {
                     echo "<td>$i</td>";
                 }
+            
                 echo "</tr><tr>";
 
-                for ($i = 0; $i < 5; $i++) {
+                for ($i = 0; $i < 10; $i++) {
                     echo "<td>".$valor[$i]."</td>";
                 }
+                
                 echo "</tr></table>";
-                
-                //pide posiciones
-            ?>
-                <form action="moverNumeroPosicionIndicada.php" method="get">
-                    Introduzca posición inicial:
-                    <input type="number" name ="inicial" min="0" max="9" autofocus="" required="">
-                    Introduzca posición final:
-                    <input type="number" name ="final" min="0" max="9" autofocus="" required="">
-                    <input type="hidden" name="contadorNumeros" value="8">
-                    <input type="hidden" name="numeroTexto" value="<?php echo $numeroTexto; ?>">
-                    <input type="hidden" name="numero" value="eliminar">
-                    <input type="submit" value="OK">
-                </form>
-            <?php
-            }
-                
-            if ($contadorNumeros == 8) {
-                $inicial = $_GET['inicial'];
-                $final = $_GET['final'];
-                
-                if(($inicial >= $final) || ($inicial < 0) || ($inicial > 4) || ($final < 0) || ($final > 4)){
-                    echo 'Datos incorrectos!';
-                }else{
-                    $valor = explode(" ", $numeroTexto);
-                    
-                    // Muestra el array original
-                    echo "Array original:<br>";
-                    echo "<table><tr>";
-                    for ($i = 0; $i < 5; $i++) {
-                        echo "<td>$i</td>";
-                    }
-                    echo "</tr><tr>";
 
-                    for ($i = 0; $i < 5; $i++) {
-                        echo "<td><span style=\"color: red;\">$valor[$i]&nbsp;&nbsp;</span></td>";
-                    }
-                    echo "</tr></table>";
-                    
-                    
-                    //rotar el array
-                    $auxiliar = $valor[4];
-                    for ($i = 4; $i > $final; $i--) {
-                      $valor[$i] = $valor[$i - 1];
-                    }
-                    $valor[$final] = $valor[$inicial];
-
-                    for ($i = $inicial; $i > 0; $i--) {
-                      $valor[$i] = $valor[$i - 1];
-                    }
-                    $valor[0] = $auxiliar;
-                    
-                    //mostar el array resultante
-                    echo "Array resultante:<br>";
-                    echo "<table><tr>";
-                    for ($i = 0; $i < 5; $i++) {
-                        echo "<td>$i</td>";
-                    }
-                    echo "</tr><tr>";
-
-                    for ($i = 0; $i < 5; $i++) {
-                        echo "<td><span style=\"color: green;\">$valor[$i]&nbsp;&nbsp;</span></td>";
-                    }
-                    echo "</tr></table>";
+                // Rotación
+                $auxiliar = $valor[9];
+                for ($i = 9; $i > $final; $i--) {
+                    $valor[$i] = $valor[$i - 1];
                 }
+                
+                $valor[$final] = $valor[$inicial];
+
+                for ($i = $inicial; $i > 0; $i--) {
+                    $valor[$i] = $valor[$i - 1];
+                }
+            
+                $valor[0] = $auxiliar;
+
+                // Muestra el array resultante
+                echo "<br><br>Inicial: $inicial Final: $final<br>";
+                echo "<br>Array resultante:<br>";
+                echo "<table><tr>";
+            
+                for ($i = 0; $i < 10; $i++) {
+                    echo "<td>$i</td>";
+                }
+            
+                echo "</tr><tr>";
+
+                for ($i = 0; $i < 10; $i++) {
+                    echo "<td>".$valor[$i]."</td>";
+                }
+                
+                echo "</tr></table>";
             }
+        }
         ?>
     </body>
 </html>
