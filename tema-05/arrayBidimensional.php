@@ -16,24 +16,53 @@ cumplan los siguientes requisitos:
     <body>
     <?php
         //generar array con números que no se repiten
-    $i = 0;
-    do{
-        $numeros = rand(100, 999);
-        if(!in_array($numeros, $linea)){
-            $linea[] = $numeros;
-            $i++;
+        $i = 0;
+
+        do{
+            $num = rand(100, 999);
+            if(!in_array($num, $linea)){
+                $linea[] = $num;
+                $i++;
+            }
+        }while($i < 54);
+
+        //una vez que se han generado los 54 númros se vuelcan
+        //en un array de 9x6
+        $min = 999;
+        $i = 0;
+
+        for($x = 0; $x < 9; $x++){
+            for($y = 0; $y < 6; $y++){
+                $numeros[$x][$y] = $linea[$i];
+                $i++;
+
+                if($numeros[$x][$y] < $min){
+                    $min = $numeros[$x][$y];
+                    $minX = $x;
+                    $minY = $y;
+                }
+            }
         }
-    }while($i < 54);
-    
-    //una vez que se han generado los 54 númros se vuelcan
-    //en un array de 9x6
-    $min = 999;
-    
-    for($x = 0; $x < 9; $x++){
-        for($y = 0; $y < 6; $y++){
-            $num[$x][$y] = $linea[$i];
+
+        //mostrar array con el minimo en azul y las diagonales en verde
+        // el abs(x) devuelve valor absoluto
+        echo "<table>";
+        
+        for($x = 0; $x < 9; $x++){
+            echo "<tr>";
+            
+            for($y = 0; $y < 6; $y++){
+                if($numeros[$x][$y] == $min){
+                   echo '<td><span style="color: blue; font-weight:bold">'.$numeros[$x][$y].' </span>'; 
+                }else if (abs(abs($x) - abs($minX)) == abs(abs($y) - abs($minY))){ 
+                    echo '<span style="color: green; font-weight:bold">'.$numero[$x][$y].' </span></td>';echo '<td><span style="color: green; font-weight:bold">'.$numeros[$x][$y].' </span>';
+                }else{
+                    echo '<td>'.$numeros[$x][$y].'</td>';
+                }
+            }
+            echo'</tr>';
         }
-    }
+        echo '</table>';
     ?>
     </body>
 </html>
