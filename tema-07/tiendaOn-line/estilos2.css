@@ -9,72 +9,34 @@ and open the template in the editor.
 */
 
 body {
-	background: url(bgblanco.png) repeat;
+        background-image: url("img/bg.png");
+        background-repeat: repeat;
+        background-position: top;
+        background-clip: padding-box;
+        background-size: cover;
+        background-origin: padding-box;
 	text-align: justify;
 	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 14px;
-	color: #757E82;
-        /*
-            background-image: url("img/media.jpeg");
-    font-family: Tahoma, Geneva, sans-serif;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-clip: padding-box;
-    background-size: cover;
-    background-origin: padding-box;
-    text-align: center;
-    color: #fff;
-    margin: 0;
-    width: 100vh;
-    height: 100%;
-        */
+	color: #fff;
+        margin: 0;
+        width: 100vh;
+        height: 100%;    
 }
 
-#container {
-	margin: 0 auto;
-	width: 777px;
-	background:#fff;
-	border: solid 1px;
-}
-
-#header {
-	background: url(bgblue2.png) repeat;
-	text-align: center;
-	padding: 20px;
-	color: white;
-	text-shadow: black 0.1em 0.1em 0.2em;
-}
-
-#header h3 {
+h3 {
   font-size: 24px;
   margin: 0;
   text-align: center;
 }
 
-#header h5 {
+h5 {
   font-size: 20px;
   margin: 0;
   text-align: center;
 }
 
-#content {
-	background: url(bglightblue.png) repeat;
-	clear: left;
-	padding: 20px;
-}
-
-#content h2 {
-	color:#000;
-	font-size: 160%;
-	margin: 0 0 .5em;
-}
-
-li {
-  padding: 18px;
-}
-
 a {
-    color: #429;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -82,14 +44,9 @@ table, th, td {
     border: 0px;
     border-collapse:collapse;
     padding: 20px;
-	vertical-align: top;
+    vertical-align: top;
 }
 
-#footer {
-	color: white;
-	background: url(bgblue2.png) repeat;
-	text-align: center;
-	padding: 20px;
-	margin: 0px;
-	height: 1%;
+hr{
+    border: 1px solid #757E82;
 }

@@ -15,7 +15,7 @@ Se podrán añadir productos al carrito tanto desde la vista de listado como des
         <h3>MediaMarket Place Detallada</h3>
         <table style="border: 2px; margin: 0px 30px 0px 30px;">
             <tr><td>
-            <h4>Portatiles Destacados</h4>
+            <h5>Portatiles Destacados</h5>
             <?php
                 $producto = array(
                   $acer = array(
@@ -53,7 +53,7 @@ Se podrán añadir productos al carrito tanto desde la vista de listado como des
                     <?= $elemento["nombre"] ?><br>
                     Precio: <?= $elemento["precio"] ?>€<br>
                     <form action="respuestas.php" method="post">
-                        <input type="hidden" name="ejercicio" value="06_detalle">
+                        <input type="hidden" name="ejercicio" value="06_detallada">
                         <input type="hidden" name="codigo" value="<?= $codigo ?>">
                         <input type="hidden" name="accion" value="detalle">
                         <input type="submit" value="Detalle">
