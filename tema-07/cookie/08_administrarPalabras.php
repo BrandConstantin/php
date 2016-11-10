@@ -1,14 +1,14 @@
 <h3>Administración de palabras</h3>
 <?php
-    if($_POST['accion'] == 'Alta Palabra'){
+    if($_POST['accion'] == 'Alta'){
         $_SESSION['diccionario'][$_POST['espaniol']] == $_POST['ingles'];
     }
 
-    if($_POST['accion'] == 'Modificar Palabra'){
+    if($_POST['accion'] == 'Modificar'){
         $_SESSION['diccionario'][$_POST['espaniol']] == $_POST['ingles'];
     }
     
-    if($_POST['accion'] == 'Eliminar Palabra'){
+    if($_POST['accion'] == 'Eliminar'){
         unset($_SESSION['diccionario'][$_POST['espaniol']]);
         setcookie($_POST['espaniol'], NULL, -1);
     }
@@ -42,7 +42,7 @@
 <td>
     <form action="respuestas.php" method="post">
   <input type="hidden" name="ejercicio" value="08_altaPalabra">
-  <input type="submit" value="Alta Palabra">
+  <input type="submit" value="Alta">
 </form>
 </td>
 <td>
