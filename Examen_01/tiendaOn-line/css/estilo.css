@@ -1,0 +1,275 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016, 8:56:19
+    Author     : costy
+*/
+            
+body{
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-clip: padding-box;
+    background-size: cover;
+    background-origin: padding-box;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+    margin: 0;
+    width: 99%;
+    height: 99%; 
+}
+
+p{
+    font-size: 18px;
+    color: black;
+    margin-bottom: 2px;
+}
+
+h4{
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 6px;
+    background-color: grey;
+    border: 3px solid black;
+    width: 55px;
+}
+
+h1{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#cabecera{
+    margin: 10px;
+    padding: 0px;
+    position: relative;
+    top: -7px;
+    left: -7px;
+    width: 99%;
+    height: 170px;
+    background-color: darkcyan;
+    opacity: 0.7;
+    border: 2px solid grey;
+}
+
+#imgCabecera{
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 140px;
+    height: 140px;
+}
+
+#vaciarCarrito{
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    width: 130px;
+}
+
+#vaciarCarrito input:hover{
+    background-color: red;
+    color: yellow;
+    cursor: pointer;
+}
+
+#vaciarCarrito input{
+    background-color: chartreuse;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 2px;
+    font-weight: bold;
+    color: black;
+}
+
+#finalizar{
+    position: absolute;
+    top: 5px;
+    right: 200px;
+    margin: 0px;
+    padding: 0px;
+    width: 130px;
+}
+
+#finalizar  input[type="submit"]{
+    background-color: chartreuse;
+    border: 2px solid black;
+    color: black;
+    border-radius: 10%;
+    font-weight: bold;
+    padding: 1px;
+}
+
+#finalizar input[type="submit"]:hover{
+    background-color: red;
+    border: 2px solid yellow;
+    color: yellow;
+    cursor: pointer;
+}
+
+#descuento{
+    position: absolute;
+    font-size: 14px;
+    float: right;
+    right: 50px;
+    top:100px;
+}
+
+#descuento input[type="text"]{
+    width: 120px;
+    margin-right: 1px;
+    font-size: 10px;
+}
+
+#descuento input[type="submit"]{
+    background-color: chartreuse;
+    border: 2px solid black;
+    color: black;
+    border-radius: 10%;
+    font-weight: bold;
+    margin-left: 1px;
+
+}
+
+#descuento input[type="submit"]:hover{
+    background-color: red;
+    color: yellow;
+    cursor: pointer;
+}
+
+#lateral{
+    top: 320px;
+    float: right;
+    height: 99%;
+    background-color: darkcyan;
+    opacity: 0.7;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    margin-top: 15px;
+    border-radius: 10%;
+}
+
+#contenedor{
+    margin: 0 auto;
+}
+
+.item{
+    width: 100px;
+    height: 100px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#carrito{
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    margin-top: 5px;
+}
+
+img#carrito{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+form.eliminar{ 
+    text-align: center;
+    margin: 0px;
+}
+
+.eliminar{
+    position: relative;
+    top: 5px;
+}
+
+.eliminar input{
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    color: chartreuse;
+    background-color: black;
+    border: none;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-right: 5px;
+}
+
+.eliminar input:hover{
+    background-color: red;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+.producto{
+    float: left;
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 200px;
+    height: 350px;
+    text-align: center;
+    background-color: chartreuse;
+    opacity: 0.7;
+    border-radius: 10%;
+    border: 2px solid yellow;
+}
+
+.producto input[type="submit"]{
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    color: red;
+    border: none;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+.producto input[type="submit"]:hover{
+    background-color: yellow;
+    border: 2px solid red;
+    color: black;
+    cursor: pointer;
+}
+/****************************************************/
+header{
+    margin : 0px;
+    padding: 0px;
+    position: relative;
+    top: -7px;
+    left: -7px;
+    width: 1295px;
+    height: 150px;
+    background-color: yellow;
+    opacity: 0.7;
+    border: 2px solid grey;
+}
+
+#total{
+    position: absolute;
+    top: 115px;
+    float: right;
+    right: 300px;
+    margin: 0px;
+}
+
+#total h4{
+    color: black;
+    background-color: chartreuse;
+    border: 3px solid black;
+    width: 85%;
+    top: 100px;
+}
+
+#precioTotal{
+    margin-right: 100px;
+}
