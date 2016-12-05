@@ -16,7 +16,7 @@
   </head>
   <body>
     <?php
-        $conection = new mysqli("localhost","root","-","crowded");
+        $conection = new mysqli("localhost","root","Sjzm0080","crowded");
         if ($conection->connect_error > 0) {
             echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
             die ("Error: " . $conection->connect_error);
@@ -69,7 +69,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div>
-        <img src="../img/carousel/carousel1.png" alt="Crowded1" width="99%" height="340"> 
+        <img src="../img/carousel/carousel2.png" alt="Crowded1" width="99%" height="340"> 
     </div>   
     
     <!--------------------------------------------------------->    

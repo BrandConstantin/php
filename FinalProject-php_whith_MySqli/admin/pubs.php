@@ -16,7 +16,7 @@
   </head>
   <body>
     <?php
-        $conection = new mysqli("localhost","root","-","crowded");
+        $conection = new mysqli("localhost","root","Sjzm0080","crowded");
         if ($conection->connect_error > 0) {
             echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
             die ("Error: " . $conection->connect_error);
@@ -91,8 +91,20 @@
                 <td><?php echo $pub->pubDj; ?></td>
                 <td><?php echo $pub->userType; ?></td>
                 <td>
-                    <form method="post" action="deltePub.php">
-                        <button type="submit" class="btn btn-default" name="action" style="background-color: lightcoral;">Eliminar
+                    <form method="post" action="deletePub.php">
+                        <input type="hidden" value="<?= $pub->pubId; ?>" name="pubId">
+                        <input type="hidden" value="<?= $pub->pubLogo; ?>" name="pubLogo">
+                        <input type="hidden" value="<?= $pub->pubName; ?>" name="pubName">
+                        <input type="hidden" value="<?= $pub->pubPass; ?>" name="pubPass">
+                        <input type="hidden" value="<?= $pub->pubEmail; ?>" name="pubEmail">
+                        <input type="hidden" value="<?= $pub->pubUbication; ?>" name="pubUbication">
+                        <input type="hidden" value="<?= $pub->city; ?>" name="city">
+                        <input type="hidden" value="<?= $pub->dateHigh; ?>" name="dateHigh">
+                        <input type="hidden" value="<?= $pub->capacity; ?>" name="capacity">
+                        <input type="hidden" value="<?= $pub->musicType; ?>" name="musicType">
+                        <input type="hidden" value="<?= $pub->pubDj; ?>" name="pubDj">
+                        <input type="hidden" value="<?= $pub->userType; ?>" name="userType">
+                        <button type="submit" class="btn btn-default" name="eliminy" style="background-color: lightcoral;">Eliminar
                             <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                         </button>
                     </form>
@@ -111,9 +123,10 @@
                         <input type="hidden" value="<?= $pub->musicType; ?>" name="musicType">
                         <input type="hidden" value="<?= $pub->pubDj; ?>" name="pubDj">
                         <input type="hidden" value="<?= $pub->userType; ?>" name="userType">
-                    <button type="submit" class="btn btn-default" name="modify" style="background-color: lightblue;">Modificar
-                        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                    </button> </form>
+                        <button type="submit" class="btn btn-default" name="modify" style="background-color: lightblue;">Modificar
+                            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                        </button> 
+                    </form>
                 </td>
         </tr>
         <?php

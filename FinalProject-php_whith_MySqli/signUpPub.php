@@ -19,7 +19,7 @@ and open the template in the editor.
     <body>
         <?php 
         //compruve if is stablished the conexion with the mysql
-        $conexion = new mysqli("localhost", "root", "-");
+        $conexion = new mysqli("localhost", "root", "Sjzm0080");
         
         if ($conexion->connect_errno > 0) {
             echo "No se ha podido establecer conexión con el servidor de bases de datos.<br>";
