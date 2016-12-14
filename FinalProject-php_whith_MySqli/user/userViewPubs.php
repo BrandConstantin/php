@@ -54,7 +54,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div>
-        <img src="../img/carousel/carousel2.png" alt="Crowded1" width="99%" height="340"> 
+        <img class="img-responisve" src="../img/carousel/carousel2.png" alt="Crowded1" width="99%" height="340"> 
     </div>   
     
     <!--------------------------------------------------------->

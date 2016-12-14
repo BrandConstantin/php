@@ -48,8 +48,12 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div>
-        <img src="../img/carousel/carousel1.png" alt="Crowded1" width="99%" height="340"> 
+    <div class="right">
+        <ul id="galeria">
+            <li><img src="../img/carousel/carousel1.png" alt="Crowded1" width="99%" height="340"> </li>
+            <li><img src="../img/carousel/carousel2.png" alt="Crowded1" width="99%" height="340"> </li>
+            <li><img src="../img/carousel/carousel3.png" alt="Crowded1" width="99%" height="340"> </li>
+        </ul>    
     </div>        
   </body>
 </html>

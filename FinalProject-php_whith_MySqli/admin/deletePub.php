@@ -12,7 +12,7 @@
     <!-- CSS de Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css propio-->
-    <link href="../css/style.css" rel="stylesheet"> 
+    <!--<link href="../css/style.css" rel="stylesheet"> -->
   </head>
   <body>
     <?php

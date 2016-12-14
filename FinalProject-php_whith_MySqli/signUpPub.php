@@ -41,10 +41,10 @@ and open the template in the editor.
             header("Refresh: 0, url=index.php");
         }
         ?>
-        <div class="tituloLogin" class="col-xs-12 col-sm-8 col-md-12">
+        <div class="logo" class="col-xs-12 col-sm-12 col-md-12">
             <img src="img/logo.png" name="logo" alt="logo" width="350" >
         </div>
-
+        <div id="principal">
             <div id="login" class="col-xs-12 col-sm-12 col-md-12">
               <h1 style="margin-bottom: 50px;">Registrate:</h1>
               <form action="signUpPubAction.php" method="POST">
@@ -83,6 +83,7 @@ and open the template in the editor.
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                 </button>
               </form>
-          </div>
+            </div>
+        </div>
     </body>
 </html>

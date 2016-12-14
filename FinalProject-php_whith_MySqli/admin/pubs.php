@@ -12,7 +12,7 @@
     <!-- CSS de Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css propio-->
-    <link href="../css/style.css" rel="stylesheet"> 
+    <!--<link href="../css/style.css" rel="stylesheet"> -->
   </head>
   <body>
     <?php
@@ -55,7 +55,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div>
-        <img src="../img/carousel/carousel1.png" alt="Crowded1" width="99%" height="340"> 
+        <img class="img-responisve" src="../img/carousel/carousel1.png" alt="Crowded1" width="99%" height="340"> 
     </div>   
     
     <!--------------------------------------------------------->    
