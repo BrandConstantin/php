@@ -41,20 +41,20 @@ and open the template in the editor.
             header("Refresh: 0, url=index.php");
         }
         ?>
-        <div class="logo" class="col-xs-12 col-sm-12 col-md-12">
-            <img src="img/logo.png" name="logo" alt="logo" width="350" >
+        <div class="logo">
+            <img src="img/logo.png" name="logo" alt="logo">
         </div>
         <div id="principal">
-            <div id="login" class="col-xs-12 col-sm-12 col-md-12">
-              <h1 style="margin-bottom: 50px;">Registrate:</h1>
+            <div id="loginReg">
+              <h1>Registrate:</h1>
               <form action="signUpPubAction.php" method="POST">
                 <input type="hidden" name="pubId" class="form-control center-block" id="pubId" autofocus placeholder="pubId"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="pubLogo">Logo:</label><br>
-                <input type="texto" name="pubLogo" class="form-control center-block" id="pubLogo" autofocus placeholder="logo"></br>
+                <input type="texto" name="pubLogo" class="form-control center-block" id="pubLogo" autofocus placeholder="logo pub"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="pubName">Nombre:</label><br>
-                <input type="text" name="pubName" class="form-control center-block" required="required"  id="pubName" autofocus placeholder="nombre"></br>
+                <input type="text" name="pubName" class="form-control center-block" required="required"  id="pubName" autofocus placeholder="nombre pub"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="pubPass">Contraseña:</label><br>
                 <input type="password" name="pubPass" class="form-control center-block" required="required"  id="pubPass" autofocus placeholder="contraseña"></br>
@@ -70,7 +70,7 @@ and open the template in the editor.
                 <input type="hidden" name="dateHigh" class="form-control center-block" id="dateHigh" autofocus placeholder="dateHigh"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="capacity">Capacidad:</label><br>
-                <input type="number" name="capacity" class="form-control center-block" required="required"  id="capacity" autofocus placeholder="capacity"></br>
+                <input type="number" name="capacity" class="form-control center-block" required="required"  id="capacity" autofocus placeholder="capacidad"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="musicType">Tipo Musica:</label><br>
                 <input type="text" name="musicaType" class="form-control center-block" id="musicType" autofocus placeholder="tipo musica"></br>

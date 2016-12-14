@@ -11,7 +11,9 @@ and open the template in the editor.
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700,900&subset=latin,latin-ext);
 
 body{
-  background-color: #1C1B1F;
+    background-color: #1C1B1F;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 }
 
 h1, h2, h3, p{
@@ -37,11 +39,56 @@ h1, h2, h3, p{
                 0 10px 10px rgba(0,0,0,.30), 
                 0 20px 20px rgba(0,0,0,.45);
 }
-label{
-    color: #fff;
+
+.logo img {
+    margin-left: 35%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 350px;
+    height: 100px;
+    border-radius: 40px;
+}
+
+#principal, #principal2, #principal3{
+    width: 100%;
+    display: inline-flex;
+    height: 100%;
+}
+
+#principal{
+    background-image: url("../img/disco/dj.jpg") ;
+    background-size: 100% 110%;
+    background-repeat: no-repeat;
+}
+
+#principal2{
+    background-image: url("../img/disco/audience.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#principal3{
+    background-image: url("../img/disco/dark.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 #login{
+    width: 25%;
+    background-color: #646269;
+    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
+                0 10px 10px 25px rgba(0,0,5,0.4), 
+                0 10px 10px 10px rgba(0,0,5,0.4);
+    margin-left: 17%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-radius: 35px;
+}
+
+#loginReg{
     width: 35%;
     background-color: #646269;
     box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
@@ -56,44 +103,6 @@ label{
     border-radius: 35px;
 }
 
-#principal{
-    width: 100%;
-    display: inline-flex;
-    height: 100%;
-    background-image: url("../img/disco/dj.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-/***********************************************************/
-/*responsive*/
-@media screen and (max-width:1200px){
-  #login{
-    width: 35%;
-    height: 100%;
-    margin: 2%;
-  }
-}
-
-@media screen and (max-width:992px){
-  #login{
-    width: 35%;
-    height: 100%;
-    margin: 2%;
-    padding-left: 5px;
-  }
-}
-
-@media screen and (max-width:768px){
-  #login{
-    width: 35%;
-    height: 100%;
-    margin: 2%;
-    padding-left: 2px;
-  }
-}
-
-/*********************************************/
 .signUp{
     margin-top: 10%;
 }
@@ -101,7 +110,44 @@ label{
 .signUp a{
     color: #d0e9c6;
 }
-/*
+
+#menu{
+    width: 99%;
+    height: 5%;
+}
+
+#listMenu{
+    list-style: none;
+    display: inline-flex;
+    padding-left: 10%;
+    width: 99%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#listMenu li{
+    margin: 6%;
+}
+
+#listMenu a{
+	font-size: 24px;
+	color: #fa0;
+	text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bolder;
+}
+
+#listMenu a:hover{
+	color: #ff7400;
+	font-size: 24px;
+        box-shadow: 1px 0 white, 
+                0 3px orange, 
+                0 4px black,
+                0 10px 10px 10px rgba(0,0,5,0.4), 
+                0 10px 10px 25px rgba(0,0,5,0.4), 
+                0 10px 10px 10px rgba(0,0,5,0.4);
+}
+
 table{
   width: 95%;
   text-align: center;
@@ -113,39 +159,60 @@ tr{
     border: 2px solid darkcyan;
 }
 
-.right {
-  width: 99%;
-  float: left;
-}
-  
-#galeria {
-  padding:2px;
-  margin: 10px;
-  list-style-type:none;
-  height:100%;
-  width:774px;
+
+/***********************************************************/
+/* diseño responsive*/
+@media screen and (max-width:1200px){
+  #login{
+    width: 25%;
+    height: 100%;
+    margin-left: 7%;
+  }
 }
 
-#galeria li {
-  width:100px;
-  height:300px;
-  float:left;
-  border-left:2px solid #000;
+@media screen and (max-width:992px){
+  #login{
+    width: 35%;
+    height: 100%;
+    margin-left: 10%;
+    padding-left: 7px;
   }
   
-#galeria li img {
-  height:500px;
-  width:510%;
-  border:0;
+  .logo img{
+    margin-left: 30%; 
+  }
+}
+
+@media screen and (max-width:768px){
+  #login{
+    width: 45%;
+    height: 100%;
+    margin-left: 3%;
+    padding-left: 4px;
   }
   
-#galeria li:hover {
-  background:#eee;
-  width:400px;
+  .logo img{
+    margin-left: 25%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 150px;
+    height: 80px; 
   }
   
-#galeria li:hover img {
-  width:100%;
+  #loginReg{
+    width: 85%;
+    background-color: #646269;
+    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
+        0 10px 10px 25px rgba(0,0,5,0.4), 
+        0 10px 10px 10px rgba(0,0,5,0.4);
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-radius: 35px;
   }
-  
-*/
+}
+
+/*********************************************/

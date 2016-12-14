@@ -25,7 +25,7 @@ and open the template in the editor.
             <!-- registrarse como usuario -->
             <div id="login">
               <h1>Login Pub</h1>
-              <form action="redirect.php" method="POST">
+              <form action="redirectPub.php" method="POST">
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="userName">Pub:</label><br>
                 <input type="text" name="userName" class="form-control center-block" id="usuarioId" autofocus placeholder="nombre pub"></br>
@@ -37,14 +37,14 @@ and open the template in the editor.
                 </button>
               </form>
               <div class="signUp">
-                <a href="signUpPub.php">¿No estas registrado como pub?</a>
+                  <a href="signUpPub.php">¿No estas registrado?<br>Hazlo AQUI!</a>
               </div>
             </div>
 
             <!-- registrarse como local -->
             <div id="login">
               <h1>Login Usuario</h1>
-              <form action="redirect.php" method="POST">
+              <form action="redirectUser.php" method="POST">
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="userName">Usuario:</label><br>
                 <input type="text" name="userName" class="form-control center-block" id="usuarioId" autofocus placeholder="nombre usuario"></br>
@@ -56,7 +56,7 @@ and open the template in the editor.
                 </button>
               </form>
               <div class="signUp">
-                <a href="signUpClient.php">¿No estas registrado como usuario?</a>
+                  <a href="signUpClient.php">¿No estas registrado?<br>Hazlo AQUI!</a>
               </div>
             </div>
         </div>

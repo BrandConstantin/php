@@ -17,20 +17,20 @@ and open the template in the editor.
     <link href="css/style.css" rel="stylesheet"> 
   </head>
     <body>
-        <div class="tituloLogin" class="col-xs-12 col-sm-8 col-md-12">
-            <img src="img/logo.png" name="logo" alt="logo" width="350" >
+        <div class="logo">
+            <img src="img/logo.png" name="logo" alt="logo">
         </div>
-
-            <div id="login" class="col-xs-12 col-sm-12 col-md-12">
-              <h1 style="margin-bottom: 50px;">Registrate:</h1>
+        <div id="principal2">
+            <div id="loginReg">
+              <h1>Registrate:</h1>
               <form action="signUpClientAction.php" method="post">
                 <input type="hidden" name="userId" class="form-control center-block" id="userId" autofocus placeholder="userId"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="userPhoto">Foto:</label><br>
-                <input type="texto" name="userPhoto" class="form-control center-block" id="userPhoto" autofocus placeholder="foto"></br>
+                <input type="texto" name="userPhoto" class="form-control center-block" id="userPhoto" autofocus placeholder="foto usuario"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="userName">Nombre:</label><br>
-                <input type="text" name="userName" class="form-control center-block" required="required"  id="userName" autofocus placeholder="nombre"></br>
+                <input type="text" name="userName" class="form-control center-block" required="required"  id="userName" autofocus placeholder="nombre usuario"></br>
                 <span class="glyphicon glyphicon-user"></span>
                 <label for="userPass">Contraseña:</label><br>
                 <input type="password" name="userPass" class="form-control center-block" required="required"  id="userPass" autofocus placeholder="contraseña"></br>
@@ -47,6 +47,7 @@ and open the template in the editor.
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                 </button>
               </form>
-          </div>
+            </div>
+        </div>
     </body>
 </html>
