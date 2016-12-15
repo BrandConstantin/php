@@ -59,10 +59,10 @@ and open the template in the editor.
             header("Refresh: 4; url=admin/adminView.php");   
         }else if(($row[5]=="user")){
             echo "<h3>Bienvenido ".$_SESSION['user']."</h3>";
-            header("Refresh: 4; url=user/userView.php");
+            //header("Refresh: 4; url=user/userView.php");
         } else {
             echo "<h3>Datos incorrectos. Vuelve a intentarlo!</h3>";
-            header("Refresh: 4; url=index.php"); 
+            //header("Refresh: 4; url=index.php"); 
         }            
     }
 ?>
