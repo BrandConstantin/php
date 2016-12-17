@@ -13,6 +13,7 @@ para representar acciones de objetos; por ejemplo, si el canario canta, el perro
     </head>
     <body>
         <?php
+            include_once 'Animal.php';
             include_once 'Canary.php';
             include_once 'Cat.php';
             include_once 'Pinguin.php';
