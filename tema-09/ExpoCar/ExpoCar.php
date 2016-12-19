@@ -33,8 +33,9 @@ class ExpoCar{
     }
     
     public function __toString() {
-        return "<br>".$this->description."<br>"."Total Saffron:".$this->saffron.
-                " locations<br>Sells locations:".($this->saffron - $this->freeEntry).
-                "<br>Free Locations:".$this->freeEntry."<br><hr>";
+        return "<br>".$this->description.
+                "<br>"."Total Saffron: ".$this->saffron." locations".
+                "<br>Sells locations: ".($this->saffron - $this->freeEntry).
+                "<br>Free Locations: ".$this->freeEntry."<br><hr>";
     }
 }

@@ -3,11 +3,11 @@
 include_once 'Mammal.php';
 
 class Dog extends Mammal{
-    public function __construct($s, $a, $r) {
-        parent::__construct($s, $a, $r);
+    public function __construct($sx, $ag, $rz) {
+        parent::__construct($sx, $ag, $rz);
         
-        if(isset($r)){
-            $this->raze = $r;
+        if(isset($rz)){
+            $this->raze = $rz;
         }else{
             $this->raze = "doberman";
         }

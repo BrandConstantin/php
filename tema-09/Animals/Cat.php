@@ -1,33 +1,37 @@
 <?php
 
-include_once 'Animal.php';
+include_once 'Mammal.php';
 
-class Cat extends Animal{
+class Cat extends Mammal{
     //atributos
-    private $color;
     private $raze;
-    private $age;
     private $kg;
-    private $sex;
     
     //métodos
-    public function __construct($s, $r, $a) {
-        parent::__construct($s, $r, $a);
+    public function __construct($sx, $ag, $rz, $kg) {
+        parent::__construct($sx, $ag, $rz, $kg);
         
-        if(isset($r)){
-            $this->raze = $r;
+        if(isset($rz)){
+            $this->raze = $rz;
         }else{
             $this->raze = "siames";
+        }
+        
+        if(!isset($kg)){
+            $this->kg = 3;
+        }else{
+            $this->kg = $kg;
         }
     }
     
     public function __toString() {
         return parent::__toString()."<br>Raze: $this->raze";
+        return parent::__toString()."<br>Kg: $this->kg";
     }
 
-    public function getSex(){
+    /*public function getSex(){
         return $this->sex;
-    }
+    }*/
     
     public function screem(){
         echo "miau<br>";

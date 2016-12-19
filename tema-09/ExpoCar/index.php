@@ -4,7 +4,7 @@ session_start();
 
 include_once 'ExpoCar.php';
 
-if(!isset($_SESSION[zones])){
+if(!isset($_SESSION["zones"])){
     $_SESSION[zones] = serialize(array(
        new ExpoCar("Principal Zone", 1500, 200) ,
        new ExpoCar("Trading Zone", 500, 50),
@@ -12,7 +12,7 @@ if(!isset($_SESSION[zones])){
     ));
 }
 
-$zones = unserialize($_SESSION[zones]);
+$zones = unserialize($_SESSION["zones"]);
 
 ?>
 
@@ -31,8 +31,8 @@ $zones = unserialize($_SESSION[zones]);
     
     if(isset($selectionZone)){
         if($zones[$selectionZone]->sell($entryNumber)){
-            echo '<script type="text/javascript">alert("'. $entryNumber. ' '
-                    . 'No more entry in ' . $zones[$selectionZone]->getDescription() .
+            echo '<script type="text/javascript">alert("'. $entryNumber. 
+                    ' sell entry in ' . $zones[$selectionZone]->getDescription() .
                     '");</script>';
         } else {
           echo '<script type="text/javascript">alert("Sorry, the sale could not be completed.");</script>';
@@ -45,7 +45,7 @@ $zones = unserialize($_SESSION[zones]);
     }
     
     //guarda toda la información de las zonas en sesión 
-    $_SESSION[zonas]= serialize($zones);
+    $_SESSION["zones"]= serialize($zones);
   ?>
   <h3>Entry Sell</h3>
   <form action="index.php" method="post">

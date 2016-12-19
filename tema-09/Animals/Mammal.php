@@ -3,8 +3,8 @@
 include_once 'Animal.php';
 
 class Mammal extends Animal{
-    public function __construct($s, $a) {
-        parent::__construct($s, $a);
+    public function __construct($sx, $ag) {
+        parent::__construct($sx, $ag);
     }
     
     public function breastfeed(){

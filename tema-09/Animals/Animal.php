@@ -4,17 +4,17 @@ class Animal{
     private $sex;
     private $age;
     
-    public function __construct($s, $a) {
-        if(!isset($s)){
+    public function __construct($sx, $ag) {
+        if(!isset($sx)){
             $this->sex = "male";
         }else{
-            $this->sex = $s;
+            $this->sex = $sx;
         }
         
-        if(!isset($a)){
+        if(!isset($ag)){
             $this->age = 1;
         }else{
-            $this->age = $a;
+            $this->age = $ag;
         }
     }
     
@@ -33,7 +33,7 @@ class Animal{
     }
     
     public function eating($eat){
-        return "I am eat $eat";
+        return "I'm eat $eat";
     }
     
     public function sleep(){

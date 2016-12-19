@@ -3,12 +3,12 @@
 include_once 'Bird.php';
 
 class Pinguin extends Bird{
-    public function __construct($s) {
-        parent::__construct($s);
+    public function __construct($sx, $ag) {
+        parent::__construct($sx, $ag);
     }
     
     public function clean() {
-        return parent::clean()."The pinguin love clean up<br>";
+        return parent::clean()."<br>The pinguin love clean up";
     }
     
     public function fly() {

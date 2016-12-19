@@ -5,11 +5,11 @@ include_once 'Bird.php';
 class Canary extends Bird{
     private $color;
     
-    public function __construct($s, $a, $c) {
-        parent::__construct($s, $a, $c);
+    public function __construct($sx, $ag, $clr) {
+        parent::__construct($sx, $ag, $clr);
         
-        if(isset($c)){
-            $this->color = $c;
+        if(isset($clr)){
+            $this->color = $clr;
         }else{
             $this->color = "yellow";
         }
