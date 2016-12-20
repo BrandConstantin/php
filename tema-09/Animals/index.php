@@ -21,13 +21,13 @@ para representar acciones de objetos; por ejemplo, si el canario canta, el perro
         ?>
         <h3>Canary</h3>
         <?php
-            $myCanary = new Bird("female", 3, "grey");
+            $myCanary = new Canary("female", 3, "grey");
             echo $myCanary->eating("pipes")."<br>";
             echo $myCanary->sleep()."<br>";
             echo $myCanary->clean()."<br>";
             echo $myCanary->fly()."<br>";
             echo $myCanary->layEggs()."<br>";
-            //echo $myCanary->sing("")."<br>";
+            echo $myCanary->sing("")."<br>";
             
             $myCanary2 = new Bird("female", 1, "yellow");
             echo $myCanary2->eating("pipes")."<br>";
@@ -60,13 +60,13 @@ para representar acciones de objetos; por ejemplo, si el canario canta, el perro
             echo $myDog->eating("male")."<br>";
             echo $myDog->breastfeed()."<br>";
             
-            //$myDog2 = new Dog();
-            //echo $myDog2->bark();
+            $myDog2 = new Dog();
+            echo $myDog2->bark();
         ?>
         <h3>Cat</h3>
         <?php
             $garfield = new Cat("male", 2, "siames", 3);
-            //$tom = new Cat("male", $ag, "pisupis", $kg);
+            $tom = new Cat("male", $ag, "pisupis", $kg);
             $lisa = new Cat("female", 1, "undefined", 4);
             $garfield->eating("")."<br>";
             $lisa->sleep()."<br>";
@@ -74,15 +74,19 @@ para representar acciones de objetos; por ejemplo, si el canario canta, el perro
             $garfield->purr()."<br>";
             $lisa->hanting()."<br>";
             $garfield->hanting()."<br>";
+
+            echo "<br>";
             
-            echo $lisa;
-            echo $garfield;
+            echo '$lisa: ' . $lisa."<br>";
+            echo '$garfield'.$garfield."<br>";
             
             $lisa->breastfeed()."<br>";
             $lisa->takeCare()."<br>";
             
-            $lisa->getAge()."<br>";
-            $garfield->getSex()."<br>";
+            echo "Sexo de Lisa:" .$lisa->getAge()."<br>";
+            echo "Sexo de Garfield: " . $garfield->getSex()."<br>";
+            
+            echo $myDog2;
             
         ?>
     </body>
