@@ -5,7 +5,7 @@ session_start();
 include_once 'ExpoCar.php';
 
 if(!isset($_SESSION["zones"])){
-    $_SESSION[zones] = serialize(array(
+    $_SESSION["zones"] = serialize(array(
        new ExpoCar("Principal Zone", 1500, 200) ,
        new ExpoCar("Trading Zone", 500, 50),
        new ExpoCar("VIP Zone", 100, 10)
@@ -47,7 +47,7 @@ $zones = unserialize($_SESSION["zones"]);
     //guarda toda la información de las zonas en sesión 
     $_SESSION["zones"]= serialize($zones);
   ?>
-  <h3>Entry Sell</h3>
+  <h3>Entry Sell</h3> 
   <form action="index.php" method="post">
       Number of entry:
       <input type="number" name="entryNumber" min="1" max="10" autofocus="" >
@@ -55,7 +55,7 @@ $zones = unserialize($_SESSION["zones"]);
           <?php
             $i = 0;
             foreach ($zones as $z){
-                echo "<option value='".$i.'">'.$z->getDescription().'</option>';
+                echo "<option value='".$i."'>".$z->getDescription().'</option>';
                 $i++;
             }
           ?>
