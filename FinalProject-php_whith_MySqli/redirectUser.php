@@ -1,44 +1,36 @@
-<?php    
-/*
-    if((!isset($_SESSION['userName'])) && (!isset($_SESSION['userPass']))){
-       //if he don't conected, goed to log page
-       echo "Tienes que ingresar en tu cuenta!";
-       header('Refresh: 2; url=index.php');
-   }else if(isset($_SESSION['userName']) && ($_SESSION['userPass'] && ($_SESSION['userType'] == 'user'))){
-       echo "Bienvenido usuario".$_SESSION['userName'];
-       header('Refresh: 2; url=user/userView.php');
-   }else if(isset($_SESSION['userName']) && ($_SESSION['userPass'] && ($_SESSION['userType'] == 'admin'))){
-       echo "Bienvenido adminitrador";
-       header('Refresh: 2; url=admin/adminView.php');
-   }
-   echo "holla 2";
- */
-?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
   <head>
     <meta charset="UTF-8">
     <title>CROWDED</title>
     <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
-    <!--bootstrap-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS de Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css propio-->
     <link href="css/style.css" rel="stylesheet"> 
+    <script type="text/javascript" src="js/slidebox.js"></script>
   </head>
     <body>
-        <div class="logo">
-            <img src="img/logo.png" name="logo" alt="logo">
+        <div id="header">
+            <div class="logo">
+                <img src="img/logo.png" name="logo" alt="logo">
+            </div>
+            <ul id="listMenuIndex">
+                <li><a href="signInUser.php">Usuario</a></li>
+                <li><a href="signInPub.php">Pub</a></li>
+                <li class="mesageSesion">Inicia sesión:</li>
+            </ul>   
         </div>
-        <div id="principal2">
-            <div id="loginReg">
-                <h1>Redirecciónar:</h1>
+        <div id="container">
+            <div id="slideshowUser">
+                <div><img src="img/carousel/dark.jpg"></div>
+                <div><img src="img/carousel/mixer.jpg"></div>
+                <div><img src="img/carousel/audience.jpg"></div>
+                <div><img src="img/carousel/dj.jpg"></div>
+                <div><img src="img/carousel/live.jpg"></div>
+                <div><img src="img/carousel/silhouette.jpg"></div>
+            </div>
+            <div id="principal2">
+                <div id="loginReg">
+                    <h1>Redirecciónar:</h1>
 <?php
     session_start();
     if((isset($_POST['userName'])) && (isset($_POST['userPass']))){
@@ -59,13 +51,14 @@ and open the template in the editor.
             header("Refresh: 4; url=admin/adminView.php");   
         }else if(($row[5]=="user")){
             echo "<h3>Bienvenido ".$_SESSION['user']."</h3>";
-            //header("Refresh: 4; url=user/userView.php");
+            header("Refresh: 4; url=user/userView.php");
         } else {
             echo "<h3>Datos incorrectos. Vuelve a intentarlo!</h3>";
-            //header("Refresh: 4; url=index.php"); 
+            header("Refresh: 4; url=index.php"); 
         }            
     }
 ?>
+                </div>
             </div>
         </div>
     </body>

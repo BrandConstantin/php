@@ -17,6 +17,10 @@ h1, h2, h3{
     font-weight: bold;
 }
 
+label{
+    color: #fa0;
+}
+
 /*********************************************/
 /* bootstrap */
 .glyphicon, label{
@@ -102,17 +106,8 @@ h1, h2, h3{
 }
 
 /************************************************/
-/* animación */
-@keyframes galary{
-    from{
-        transform:rotateY(0deg);
-    }to{
-        transform:rotateY(360deg);
-    }
-}
 
 #container{  
-    display: inline;
     width: 90%;
     height: 90%;
     margin-left: 5%;
@@ -122,64 +117,54 @@ h1, h2, h3{
 }
 
 #galery{
-    opacity: 0.9;
     width: 65%;
-    height: 499px;
-    margin-right: 5%;
+    height: 410px;
+    margin-left: 5%;
     margin-top: 5%;
-    animation-name: galary;
-    animation-duration: 70s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    transform-style: preserve-3d;
-    transform: rotateY(360deg);
+    float: left;
+    margin-right: 5%;
+}
+
+#slideshow{
+    width: 100%;
+    height: 100%;
+    margin: 5px auto; 
+    position: relative;  
+    padding: 3px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
     overflow: hidden;
 }
 
-#div1, #div2, #div3, #div4{
-        display: inline;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        opacity: 0.9;
+#slideshow > div { 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
 }
 
-#div1{
-        border: 1px solid black;
-        overflow: visible;
-        background-image: url("../img/disco/audience.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        transform: rotateY(0deg) translateX(0px) translateZ(110px);
+#slideshow > div > img{ 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+}
+#slideshowUser{
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-#div2{
-        border: 1px solid black;
-        overflow: visible;
-        background-image: url("../img/disco/dj.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        transform: rotateY(0deg) translateX(0px) translateZ(-145px);
+#slideshowUser > div { 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
 }
 
-#div3{
-        border: 1px solid black;
-        overflow: visible;
-        background-image: url("../img/disco/dark.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        transform: rotateY(-90deg) translateX(-15px) translateZ(150px);
+#slideshowUser > div > img{ 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
 }
-
-#div4{
-    border: 1px solid black;
-    overflow: visible;
-    background-image: url("..img/disco/mixer.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transform: rotateY(-90deg) translateX(-15px) translateZ(-150px);
-}
-
 /*************************************************/
 /* register */
 #register{
@@ -213,107 +198,70 @@ h1, h2, h3{
 .signUp a:hover{
     color: #000;
 }
-/*
+
+/****************************************************/
+/* logo */
 .logo img {
-    margin-left: 35%;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    width: 350px;
-    height: 100px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 80px;
     border-radius: 40px;
-}
-
-#principal, #principal2, #principal3{
-    width: 100%;
-    display: inline-flex;
-    height: 100%;
-}
-
-#principal{
-    background-image: url("../img/disco/dj.jpg") ;
-    background-size: 100% 110%;
-    background-repeat: no-repeat;
-}
-
-#principal2{
-    background-image: url("../img/disco/audience.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-#principal3{
-    background-image: url("../img/disco/dark.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-#loginReg{
-    width: 35%;
-    background-color: #646269;
-    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
-                0 10px 10px 25px rgba(0,0,5,0.4), 
-                0 10px 10px 10px rgba(0,0,5,0.4);
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 40px;
-    padding-bottom: 30px;
-    border-radius: 35px;
-}
-
-#menu{
-    width: 99%;
-    height: 5%;
-}
-
-#listMenu{
-    list-style: none;
-    display: inline-flex;
-    padding-left: 10%;
-    width: 99%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-#listMenu li{
-    margin: 6%;
-}
-
-#listMenu a{
-	font-size: 24px;
-	color: #fa0;
-	text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bolder;
-}
-
-#listMenu a:hover{
-	color: #ff7400;
-	font-size: 24px;
-        box-shadow: 1px 0 white, 
-                0 3px orange, 
-                0 4px black,
-                0 10px 10px 10px rgba(0,0,5,0.4), 
-                0 10px 10px 25px rgba(0,0,5,0.4), 
-                0 10px 10px 10px rgba(0,0,5,0.4);
-}
-
-table{
-  width: 95%;
-  text-align: center;
-  margin: 0 auto;
-  border: 2px solid darkcyan;
-}
-
-tr{
-    border: 2px solid darkcyan;
 }
 
 
 /***********************************************************/
-/* diseño responsive*/
-/*@media screen and (max-width:1200px){
+/* login for user */
+#register2{
+    float: left;
+    width: 40%;
+    margin-top: 5%;
+}
+
+#login2{
+    width: 95%;
+    background-color: #646269;
+    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
+                0 10px 10px 25px rgba(0,0,5,0.4), 
+                0 10px 10px 10px rgba(0,0,5,0.4);
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 35px;
+}
+
+.signUp2{
+    margin-top: 3%;
+    font-size: 12px;
+}
+
+.signUp2 a{
+    color: #fa0;
+}
+
+.signUp2 a:hover{
+    color: #000;
+}
+
+#button2{
+    background-color: #245588;
+    color: #fa0;
+    padding: 5px;
+    border-radius: 15%;
+    font-size: 12px;
+}
+
+#button2:hover{
+    background-color: #fa0;
+    color: #000;
+}
+
+/******************************************/
+/* diseño responsive
+@media screen and (max-width:1200px){
   #login{
     width: 25%;
     height: 100%;
@@ -365,5 +313,5 @@ tr{
     border-radius: 35px;
   }
 }
-
+*/
 /*********************************************/

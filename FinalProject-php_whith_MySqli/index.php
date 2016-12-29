@@ -10,6 +10,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css propio-->
     <link href="css/style.css" rel="stylesheet"> 
+    <script type="text/javascript" src="js/slidebox.js"></script>
   </head>
     <body>
         <div id="header">
@@ -57,10 +58,12 @@
                 </div>
             </div>
             <div id="galery">
-                <div id="div1"></div>
-                <div id="div2"></div>
-                <div id="div3"></div>
-                <div id="div4"></div>
+                <div id="slideshow">
+                    <div><img src="img/disco/dark.jpg"></div>
+                    <div><img src="img/disco/mixer.jpg"></div>
+                    <div><img src="img/disco/audience.jpg"></div>
+                    <div><img src="img/disco/dj.jpg"></div>
+                </div>
             </div>
         </div>
     </body>
