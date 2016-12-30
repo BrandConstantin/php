@@ -46,8 +46,8 @@ label{
     background-color: #245588;
     color: #fa0;
 }
-/************************************************/
 
+/*********************************************/
 #header{
     float: left;
     margin-left: 5%;
@@ -258,60 +258,3 @@ label{
     background-color: #fa0;
     color: #000;
 }
-
-/******************************************/
-/* diseño responsive
-@media screen and (max-width:1200px){
-  #login{
-    width: 25%;
-    height: 100%;
-    margin-left: 7%;
-  }
-}
-
-@media screen and (max-width:992px){
-  #login{
-    width: 35%;
-    height: 100%;
-    margin-left: 10%;
-    padding-left: 7px;
-  }
-  
-  .logo img{
-    margin-left: 30%; 
-  }
-}
-
-@media screen and (max-width:768px){
-  #login{
-    width: 45%;
-    height: 100%;
-    margin-left: 3%;
-    padding-left: 4px;
-  }
-  
-  .logo img{
-    margin-left: 25%;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    width: 150px;
-    height: 80px; 
-  }
-  
-  #loginReg{
-    width: 85%;
-    background-color: #646269;
-    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
-        0 10px 10px 25px rgba(0,0,5,0.4), 
-        0 10px 10px 10px rgba(0,0,5,0.4);
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 40px;
-    padding-bottom: 30px;
-    border-radius: 35px;
-  }
-}
-*/
-/*********************************************/

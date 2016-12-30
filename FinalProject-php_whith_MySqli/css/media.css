@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 30, 2016, 1:43:25 PM
+    Author     : BrandConstantin
+*/
+
+/******************************************/
+/* diseño responsive*/
+
+@media screen and (max-width:768px){
+  #login2{
+    width: 45%;
+    height: 100%;
+    margin-left: 3%;
+    padding-left: 4px;
+  }
+  
+  .logo img{
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 30px; 
+  }
+}
+
+@media screen and (max-width:992px){
+    #register2 {
+        float: left;
+        width: 55%;
+        margin-top: 5%;
+    }
+    
+    #login2{
+        width: 70%;
+        height: 100%;
+        margin-left: 10%;
+        padding-left: 7px;
+    }
+    
+    #pubId, #usuarioId, #contrasenaId{
+        width: 70%;
+    }
+    
+    .logo img{
+        margin-left: 5%; 
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 150px;
+        height: 60px;
+    }
+}

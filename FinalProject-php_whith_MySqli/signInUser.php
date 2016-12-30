@@ -6,15 +6,17 @@
     <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
     <!--css propio-->
     <link href="css/style.css" rel="stylesheet"> 
+    <!-- css para media -->
+    <link href="css/media.css" rel="stylesheet">
     <script type="text/javascript" src="js/slidebox.js"></script>
   </head>
     <body>
         <div id="header">
             <div class="logo">
-                <img src="img/logo.png" name="logo" alt="logo">
+                <a href="index.php"><img src="img/logo.png" name="logo" alt="logo"></a>
             </div>
             <ul id="listMenuIndex">
-                <li class="mesageSesion">Alta usuario:</li>
+                <li><a href="index.php">Inicio</a></li>
             </ul>   
         </div>
         <div id="container">
