@@ -10,6 +10,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!--css propio-->
     <link href="css/style.css" rel="stylesheet"> 
+    <!-- css para media -->
+    <link href="css/media.css" rel="stylesheet">
     <script type="text/javascript" src="js/slidebox.js"></script>
   </head>
     <body>
@@ -21,8 +23,8 @@
                 <li class="mesageSesion">Inicia sesión:</li>
             </ul>   
         </div>
-        <div id="container" class="row">
-            <div id="register" class="col-xs-12 col-sm-12 col-md-12">
+        <div id="container">
+            <div id="register">
                 <div id="login">
                     <h1>Pub</h1>
                     <form action="redirectPub.php" method="POST">
@@ -57,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div id="galery" class="col-xs-8 col-sm-8 col-md-8">
+            <div id="galery">
                 <div id="slideshow" class="img-responsive">
                     <div><img src="img/disco/dark.jpg"></div>
                     <div><img src="img/disco/mixer.jpg"></div>
