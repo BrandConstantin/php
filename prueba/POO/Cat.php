@@ -1,6 +1,6 @@
 <?php
 
-class Cat{
+class Cat extends Animal{
     //atributos
     private $color;
     private $raze;
