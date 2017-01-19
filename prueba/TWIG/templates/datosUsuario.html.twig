@@ -1,0 +1,23 @@
+{# empty Twig template #}
+{# Plantilla para mostrar información del usuario #}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Información de usuario</h2>
+    <b>Nombre:</b> {{ persona.nombre }}<br>
+    <b>Apellido:</b> {{ persona.apellido }}<br>
+    <b>DNI:</b> {{ persona.dni }}<br>
+    
+    <hr>
+    
+    <h2>{{otro.titulo}}</h2>
+    <b>Nombre:</b> {{ otro.usuario.nombre }}<br>
+    <b>Primer apellido:</b> {{ otro.usuario.apellido1 }}<br>
+    <b>Segundo apellido:</b> {{ otro.usuario.apellido2 }}<br>
+    <b>DNI:</b> {{ otro.usuario.dni }}<br>
+  </body>
+</html>
