@@ -1,4 +1,5 @@
 <?php
+  
   require_once '../Model/Story.php';
   
   $data['storys'] = Story::getStorys();  
@@ -23,15 +24,15 @@
       
       $modify = Story::getStory("IdStory", $IdStory); 
       
-      if(isset($_GET['modifyTitleStory'])){
+      include '../View/principal.php';
+  }else if(isset($_GET['modifyTitleStory'])){
         $newTitleStory = $_GET['modifyTitleStory'];
         $newTextStory = $_GET['modifiedTextStory'];
 
-        $modifiedStory = new Story($newTextStory, $newTitleStory);
+        $modifiedStory = new Story($newTitleStory, $newTextStory);
         $modifiedStory->update($_GET['IdStory']);
 
         header("Location: adminBlog.php");
-      }
   }else {
       include '../View/principal.php';
   }
