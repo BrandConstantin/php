@@ -1,0 +1,44 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block contenido %}
+{% if not modStory is defined %}
+    <form method="get" action="../Controller/admin.php" class="thumbnail container">
+        <h3>New Story</h3>
+        <input type="text" placeholder="The title of the story" maxlength="100" size="45" autofocus name="TitleStory">
+        <textarea rows="5" cols="100" placeholder="The text of story" name="TextStory">
+
+        </textarea>
+        <br>
+        <input type="submit" value="Insert" class="btn btn-primary">
+    </form>
+{% else %}
+    <form method="get" action="../Controller/adminBlog.php" class="thumbnail container">
+        <h3>Modify Story</h3>
+        <input type="hidden" name="IdStory" value="{{ modStory.IdStory }}">
+        <input type="text" placeholder="Title of the new story" maxlength="50" size="45" autofocus name="modifiedTitleStory" value="{{ storyMod.titulo }}">
+        <textarea rows="5" cols="100" placeholder="The text of story" name="modifiedTextStory">
+            {{ modStory.contenido }}
+        </textarea>
+        <input type="submit" value="Modify Story" class="btn btn-primary">
+    </form>
+    {% endif %}
+    <section class="container">
+        {% for story in story %}
+            <article class="thumbnail">
+                <h4>
+                    {{ story.titulo }}
+                </h4>
+                <h5>
+                    Date of publicity:{{ story.dateStory }}<br>Id Story: {{ story.IdStoy }}
+                </h5>
+                <div>
+                    {{ story.TextStoy }}
+                </div>
+                <div>
+                    <a href="adminBlog.php?modify={{ story.IdStory}}"></a>
+                    <a href="adminBlog.php?delete={{ story.IdStory }}"></a>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
