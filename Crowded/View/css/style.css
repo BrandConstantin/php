@@ -1,0 +1,353 @@
+/* 
+    Created on : Nov 25, 2016, 11:14:38 PM
+    Author     : constantin brindusoiu
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700,900&subset=latin,latin-ext);
+
+body{
+    background-color: #1C1B1F;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin: 0px;
+}
+
+h1, h2, h3{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+label{
+    color: #fa0;
+}
+
+/*********************************************/
+/* bootstrap */
+.glyphicon, label{
+    font-weight: 200;
+}
+
+.form-control{
+    padding: 9px 22px;
+}
+
+.btn{
+    padding: 5px;
+    border-radius: 15%;
+    font-size: 12px;
+}
+
+.btn-default{
+    background-color: #fa0;
+    color: #000;
+}
+
+.btn-default:hover{
+    background-color: #245588;
+    color: #fa0;
+}
+
+/*********************************************/
+/* container */
+
+#container{  
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+/* header*/
+#header{
+    float: left;
+    margin-left: 5%;
+    width: 90%;
+    padding-top: 2%;
+    padding-bottom: 2%; 
+    display: inline;
+}
+
+#listMenuIndex{
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+    display: flex;
+    flex-direction: row-reverse;
+    width: 40%;
+    margin-top: -6%;
+    float: right;
+    margin-right: 5%;
+}
+
+#listMenuIndex li{
+    list-style: none;  
+    padding-right: 5%;
+    font-size: 17px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#listMenuIndex a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#listMenuIndex a:hover{
+	color: #245588;
+	font-size: 17px;
+        text-decoration: none;
+        text-shadow: 5px 5px #000, 1px 1px rgba(0,0,0,.45);
+}
+/**************************************/
+/*efecto 3d*/
+#shadow{
+  font-weight: bolder;
+  font-size: 40px;
+  text-shadow: 5px 0px #fff, 5px 5px rgba(0,0,0,.10);
+  width: 35%;
+}
+
+/************************************************/
+
+#galery{
+    width: 100%;
+    height: 410px;
+    margin-top: 5%;
+    overflow: hidden;
+    left: 0px;
+}
+
+#slideshow{
+    width: 100%;
+    height: 100%;
+    margin: 5px auto; 
+    position: relative;  
+    padding: 3px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow > div { 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+}
+
+#slideshow > div > img{ 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+}
+
+#message{
+    margin: 0 auto;
+    top: 200px;
+    position: absolute;
+    left: 25%;
+}
+
+#message h4, #message h6{
+    color: #245588;
+    text-align: center;
+    text-shadow: 2px 2px #fff, 2px 2px rgba(0,0,0,.10);
+}
+
+#message h4{
+    font-size: 50px;
+}
+
+#message h6{
+    font-size: 40px;
+}
+
+#message .listMenuIndex-special li{
+    font-size: 17px;
+}
+
+#message .listMenuIndex-special a{
+    background-color: #245588;
+    color: #fff;
+}
+
+#message .listMenuIndex-special a:hover{
+    background-color: #fff;
+    color: #245588;
+    text-shadow: 2px 2px #000, 1px 1px rgba(0,0,0,.45);
+    opacity: 0.5;
+}
+
+/***************************************/
+/* photo disco */
+#dico{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: yellow;
+}
+
+#disco h1{
+    color: #fff;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+#clubs{
+    width: 99%;
+    height: 100%;
+    padding-left: 5px;
+    display: inline-flex;
+    overflow: hidden;
+}
+
+#clubs img{
+    width: 150px;
+    height: 150px;
+    padding-left: 78px;
+}
+
+.footer{
+    width: 100%;
+    height: 60px;
+    margin-top: 70px;
+    padding-top: 10px;
+    margin-left: 0px;
+    background-color: #fff;
+}
+
+.menu-footer a{
+    padding-left: 40px;
+}
+
+.copyright{
+    margin-top: 40px;
+    color: #fff;
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+#election{
+    font-size: 30px;
+    top: 200px;
+    position: absolute;
+    left: 30%;
+}
+
+#election a{
+    text-decoration: none;
+    background-color: #fff;
+    color: #245588;
+    display: inline-flex;
+    padding: 25px;
+    padding-left: 75px;
+    opacity: 0.5;
+    width: 130px;
+}
+
+#election a:hover{
+    color: #fff;
+    background-color: #245588;
+    text-shadow: 2px 2px #245588, 2px 2px rgba(0,0,0,.10);
+}
+
+#election h1{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px #245588, 2px 2px rgba(0,0,0,.10);
+}
+
+/*************************************************/
+/* register */
+#register{
+    float: left;
+    width: 35%;
+    top: 30%;
+    position: absolute;
+    margin-left: 50px;
+}
+
+#login{
+    width: 95%;
+    background-color: #646269;
+    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
+                0 10px 10px 25px rgba(0,0,5,0.4), 
+                0 10px 10px 10px rgba(0,0,5,0.4);
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 35px;
+}
+
+.signUp{
+    margin-top: 3%;
+    font-size: 12px;
+}
+
+.signUp a{
+    color: #fa0;
+}
+
+.signUp a:hover{
+    color: #000;
+}
+
+/****************************************************/
+/* logo */
+.logo img {
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 80px;
+    border-radius: 40px;
+}
+
+
+/***********************************************************/
+/* login for user */
+#register2{
+    float: left;
+    width: 40%;
+    margin-top: 5%;
+}
+
+#login2{
+    width: 95%;
+    background-color: #646269;
+    box-shadow: 0 10px 10px 10px rgba(0,0,5,0.4), 
+                0 10px 10px 25px rgba(0,0,5,0.4), 
+                0 10px 10px 10px rgba(0,0,5,0.4);
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 35px;
+}
+
+.signUp2{
+    margin-top: 3%;
+    font-size: 12px;
+}
+
+.signUp2 a{
+    color: #fa0;
+}
+
+.signUp2 a:hover{
+    color: #000;
+}
+
+#button2{
+    background-color: #245588;
+    color: #fa0;
+    padding: 5px;
+    border-radius: 15%;
+    font-size: 12px;
+}
+
+#button2:hover{
+    background-color: #fa0;
+    color: #000;
+}
