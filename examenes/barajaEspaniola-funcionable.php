@@ -47,43 +47,32 @@ Rey de espadas
             $randomNum = rand(1, 12);
             $num = $numeros[$randomNum];
 
-            //elige la carta
+            //formar la carta
             $carta = $num." ".$pal;            
 
-            $cartaAnte = $carta;
+            $cartas[$i] = $carta;                
+            
+            //añade las cartas en un array
+            $cartas[$i] = $carta;
+            
+            if(!in_array($carta, $cartas)){
+                $cartas[$i] = $carta;
                 
-            if($cartaAnte == $carta){
                 $repite = rand(0, 1);
-                
+
                 if($repite == 0){
                     $modifica = "numero";
                 }else{
                     $modifica = "palo";
                 }
-                
+
                 if($modifica == "palo"){
-                    //si se repite el palo
-                    //if($pal == $pal){
                         $randomPalo = rand(1, 4);
                         $pal = $palos[$randomPalo];
-                    //}
                 }else{                
-                    //si se repite el número
-                    //if($num == $num){
                         $randomNum = rand(1, 12);
                         $num = $numeros[$randomNum];
-                    //}
                 }
-            }
-            
-            //añade las cartas en un array
-            $cartas[$i] = $cartaAnte;
-            
-            if(!in_array($cartaAnte, $cartas)){
-                $cartas[$i] = $cartaAnte;
-
-                $paloAnte = $pal;
-                $numAnte = $num;
             }
             
             echo "<h3>".$cartas[$i]."</h3>";
