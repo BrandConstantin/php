@@ -11,6 +11,7 @@ $puntosTotales = 0;
 $randomPalo2 = "";
 $randomFigura2 = "";
 $cartasEchadas = "";
+$i;
 
 do{
     /* ME SACA EL PALO O LA FIGURA IGUAL */
@@ -29,7 +30,7 @@ do{
     
     /*Comprobamos que no se repitan las cartas*/
     if (!in_array($carta, $cartasEchadas)){//comprueba que la carta no se repita  
-        $cartasEchadas[] = $carta; // la meto en un array en el q compruebo que no saco la misma carta
+        $cartasEchadas[$i] = $carta; // la meto en un array en el q compruebo que no saco la misma carta
         echo "<div>$carta - $puntosCartas puntos<br></div>";//muestro la carta no repetida
         $puntosTotales += $puntosCartas; // suma puntos carta
         

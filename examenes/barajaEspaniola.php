@@ -33,7 +33,7 @@
             $numAnt = $numeros[$randomNum];
             
             //elige la carta
-            for($i = 0; $i < 7; $i++){
+            for($i = 0; $i < 5; $i++){
                 $noRepite = false;
                 
                 while(!$noRepite){
@@ -82,13 +82,15 @@
                     $carta = $num." ".$palos[$randomPalo];
                     
                     if(!in_array($carta, $cartas)){
-                        $carta[$i] = $carta;
-                        $i++;
+                        //$carta[$i] = $carta;
+                        //$i++;
                         $noRepite = TRUE;
                         $paloAnt = $palos[$randomPalo];
                         $numAnt = $numeros[$randomNum];
                     }
                 }
+                
+                $total = 0;
                 
                 //total brisca
                 $total = $total + $brisca[$num];
