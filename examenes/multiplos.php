@@ -1,47 +1,66 @@
 <!DOCTYPE html>
+<!--
+Realiza un programa que vaya pidiendo números positivos por teclado y que los vaya almacenando en un
+array. La introducción de números termina cuando el usuario mete un número negativo. Por tanto, a priori,
+el programa no sabe cuántos números introducirá el usuario. El último número introducido (el negativo) se
+desprecia. A continuación se debe mostrar el contenido de ese array de tal forma que los múltiplos de 5
+deben salir en rojo, los múltiplos de 2 en verde; los que sean al mismo tiempo múltiplos de 5 y de 2 en azul
+y el resto de números en negro
+-->
 <html>
-    <?php
-        $numIntrod = $_GET['numIntrod'];
-        $contador = $_GET['contador'];
-        $numTexto = $_GET['numTexto'];
-        
-        if(!isset($numIntrod)){
-            $contador = 0;
-            $numTexto = " ";
-        }//else{
-            //mostrar los números introducidos
-            if($numIntrod < 0){
-                //añade el ultimo número leido 
-                $numTexto = $numTexto;
-                $numTexto = substr($numTexto, 2);
-                $num = explode(" ", $numTexto);
-                
-                echo "Los números son: <br>";
-                foreach ($num as $value) {
-                    if(($numIntrod % 2 == 0)){
-                        echo "<span style='color: green'>".$numIntrod."</span>";
-                    }else if($numIntrod % 5 == 0){
-                        echo "<span style='color: red'>".$numIntrod."</span>";
-                    }else if(($numIntrod % 2 == 0) && ($numIntrod % 5 == 5)){
-                        echo "<span style='color: blue'>".$numIntrod."</span>";
-                    }else{
-                        echo $numIntrod." ";
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+            $numIntro = $_GET['numIntro'];
+            $numeros = $_GET['numeros'];
+            $contador = $_GET['contador'];
+             
+            if (!isset($numIntro)) {
+                $contador = 0;//para que el campo ++numeros sea 0
+                $numeros = "";
+            }
+             
+            if ($numIntro < 0) {
+                $numeros = substr($numeros, 2);
+                 
+                $numIntro = explode("-", $numeros);
+                $arrayFinal = new SplFixedArray(count($numIntro));
+                 
+                foreach ($numIntro as $numeros) {
+                     
+                    for ($i = 0; $i < count($numeros); $i++) {
+                         
+                        if (($numeros % 2 == 0) && ($numeros % 5 == 0) ) {
+                            $arrayFinal = $numeros;
+                            echo "<span style=\"color: blue\"> $arrayFinal</span>";
+                        }else if ($numeros % 5 == 0){
+                            $arrayFinal = $numeros;
+                            echo "<span style=\"color: red\"> $arrayFinal</span>";
+                        }else if( $numeros % 2 == 0 ){
+                            $arrayFinal = $numeros;
+                            echo "<span style=\"color: green\"> $arrayFinal</span>";
+                             
+                        } else {
+                            $arrayFinal = $numeros;
+                            echo " $arrayFinal ";
+                        }
                     }
                 }
-            }
-            
-            //pedir números
-            if (!isset($numIntro) || ($numIntro >= 0)) {
-                ?>
-                <form action="multiplos.php" method="get">
-                    Introduzca un número:
-                    <input type="number" name ="numIntrod" autofocus="">
-                    <input type="hidden" name="contador" value="<?= $contador++; ?>">
-                    <input type="hidden" name="numeroTexto" value="<?= $numeroTexto . " " . $numIntro; ?>">
-                    <input type="submit" value="OK">
-                </form>
-                <?php
-            }
-        //}
+                
+            } else {
+             
         ?>
+        <form action="multiplos.php" method="get">
+            Introduzca un número: <input type="number" name="numIntro" autofocus>
+            <input type="hidden" name="numeros" value="<?= $numeros . "-" . $numIntro ?>">
+            <input type="hidden" name="contador" value="<?= ++$contador ?>">
+            <input type="submit" value="Introducir">
+        </form>
+        <?php
+            }
+        ?>
+    </body>
 </html>
