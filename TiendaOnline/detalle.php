@@ -1,57 +1,13 @@
 <?php
     error_reporting(E_ALL ^ E_NOTICE); //no muestra error de variables indefinida
     session_start();// Inicia la sesión
-
+/*
     //inicializa el carrito a cero
     if(!isset($_SESSION['carrito'])){
         $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
         //$_SESSION['total'] = 0;
     }
-    
-    $codProd = $_POST['codProd'];
-    
-    if($codProd == "asus"){
-        echo $name  = "Asus";
-        echo $imag = "img/asus.jpeg";
-
-        ?>
-        <img src="<?= $imag ?>">
-        <p>Ideal para estudiantes</p>
-       <?php 
-    } else if ($codProd == "acer"){
-        $name  = "Acer";
-        $imag = "img/acer.jpeg";
-                        ?>
-                <p>Ideal para cualquiera!</p>
-                <?php 
-    } else if ($codProd == "hp"){
-        $name  = "hp";
-        $imag = "img/hp.jpeg";
-                                ?>
-                <p>Ideal para editores video</p>
-                <?php 
-    } else if ($codProd == "msi"){
-        $name  = "Msi";
-        $imag = "img/msi.jpeg";
-                                ?>
-                 <p>Ideal para gamars</p>
-                <?php
-    } else if ($codProd == "samsung"){
-        $name  = "Samsung";
-        $imag = "img/samsung.jpeg";
-                        ?>
-                 <p>Ideal para quien busca algo con grandes prestaciones</p>
-                <?php
-    }else if ($codProd == "yamaha"){
-        $name  = "Yamaha";
-        $imag = "img/yamaha.jpg";
-    }else if ($codProd == "samsung j3"){
-        $name  = "Samsung J3";
-        $imag = "img/j3.jpg";
-    }else if ($codProd == "samsung j5"){
-        $name  = "Samsung j5";
-        $imag = "img/j5.jpg";
-    }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -84,54 +40,45 @@
                 </div>
             </div>
             <div id="contentarea">
-                <?php                  
+                <?php                                 
+                //carrito de la compra 
+                $codigo = $_GET['codigo'];       
+                
                 //sesión de los articulos mantenida abierta
                 $articulos = $_SESSION['articulos'];
-
-                //carrito de la compra 
-                    $codigo = $_GET['codigo'];
-                    $accion = $_GET['accion'];
+                $elemento = $articulos[$codigo];
                 ?>
                 <div id="carrito">
                     <h4>Detalles producto</h4>
                     <table id="table">
-                        <?php
-                        foreach ($articulos as $codigo => $elemento) {
-                            if($codigo == $elemento['nombre']){                               
-                        ?>
                         <tr>
-                            <td colspan="2"> 
-                                <img style="width:400px; height: 300px" src="<?=$elemento['imag']?>" width="160px" border="1"><br>
-                            </td>
-                            <td colspan="2">
-                                <h4>Nombre: <?=$elemento['nombre']?></h4>
+                            <td colspan="3"> 
+                                <img style="width:400px; height: 300px" src="<?=$elemento['imag']?>"><br>
                             </td>
                         </tr>
-                        <tr>
+                        <tr>          
                             <td>
-                                <h4>Precio: <?=$elemento['precio']?></h4>
-                            </td>                            
-                            <td>
-                                <h4>Detalle: <?=$elemento['detalle']?></h4>
-                            </td>                            
+                                <h4>Nombre: <?=$elemento['nombre']?></h4>
+                            </td>                          
                             <td>
                                 <h4>Oferta: <?=$elemento['oferta']?></h4>
                             </td>
                             <td><h4><?=$elemento['precio']?> €</h4></td>
                         </tr>
                         <tr>
+                            <td colspan="3">
+                                <h4>Detalles: <?=$elemento['detalle']?></h4>
+                            </td>  
+                        </tr>
+                        <tr>
                             <td colspan="4">
-                                <form action="index.php" method="GET">
+                                <form action="detalle.php" method="GET">
                                     <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                    <input type="hidden" name="accion" value="vaciarCarrito">
+                                    <input type="hidden" name="accion" value="comprar">
                                     <input id="btn1" type="submit" value="Comprar">
                                 </form>
                             </td>
                         </tr>
-                        <?php
-                            }
-                        }
-                        ?>
                     </table> <!--cierre de la tabla carrito-->
                 </div><!--cierre carrito luego sidebar -->
             </div>
@@ -155,6 +102,14 @@
                 <form action="altavoces.php" method="GET" style="text-align: center;">
                     <input type="hidden" name="action" value="altavoces">
                     <input id="btn1" type="submit" value="Altavoces">
+                </form>  
+                <form action="novedades.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="novedad">
+                    <input id="btn1" type="submit" value="Novedades">
+                </form> 
+                <form action="ofertas.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="ofertas">
+                    <input id="btn1" type="submit" value="Ofertas">
                 </form> 
             <hr>
             <hr>
@@ -162,9 +117,9 @@
                 <ul id="items">
                     <?php //getBrands(); ?>
                 </ul>
-                <form action="samnsung.php" method="GET" style="text-align: center;">
-                    <input type="hidden" name="action" value="samnsung">
-                    <input id="btn1" type="submit" value="Samnsung">
+                <form action="samsung.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="samsung">
+                    <input id="btn1" type="submit" value="Samsung">
                 </form>
                 <form action="asus.php" method="GET" style="text-align: center;">
                     <input type="hidden" name="action" value="asus">
@@ -186,6 +141,101 @@
                     <input type="hidden" name="action" value="yamaha">
                     <input id="btn1" type="submit" value="Yamaha">
                 </form>
+                <!-- carrito de compra -->
+                <?php
+                $codigo = $_GET['codigo'];
+                $accion = $_GET['accion'];
+                
+                if($accion == "comprar"){
+                    $_SESSION['carrito'][$codigo]++;
+                }
+                
+                if($accion == "eliminar"){
+                    $_SESSION['carrito'][$codigo] = 0;
+                }
+                
+                if($accion == "vaciarCarrito"){
+                    foreach ($articulos as $clave => $elemento) {
+                        $_SESSION['carrito'][$elemento['nombre']] = 0;
+                    }
+                }
+                
+                if($accion == "modificarCantidad"){
+                    $_SESSION['carrito'][$codigo] = $_GET['cantidad'];
+                }
+                $total = 0;
+            ?>
+            <div id="carrito">
+                <h4>Carrito</h4>
+                <table id="table">
+                    <?php
+                    foreach ($articulos as $codigo => $elemento) {
+                        if($_SESSION['carrito'][$codigo] > 0){
+                            $total = $total + ($_SESSION['carrito'][$codigo] * $elemento['precio']);
+                    ?>
+                    <tr>
+                        <td>Producto</td>
+                        <td>Cantidad</td>
+                        <td colspan="2">Precio</td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <img src="<?=$elemento['imag']?>" width="160px" border="1"><br>
+                             <?=$elemento['nombre']?>
+                        </td>
+                        <td>
+                            <form action="index.php" method="GET">
+                                    <input type="number" id="cantidad" name="cantidad" value="<?= $_SESSION['carrito'][$codigo]; ?>" min="0" max="99" style="width: 35px; margin-bottom: 5px;" >
+                                    <input type="hidden" name="codigo" value="<?=$codigo?>">
+                                    <input type="hidden" name="accion" value="modificarCantidad">
+                                    <input id="ok" type="submit" value="Ok">
+                            </form>
+                        </td>
+                        <td><h4><?=$elemento['precio']?> €</h4></td>
+                        <td>
+                            <form action="eliminar.php" method="GET">
+                                <input type="hidden" name="codigo" value="<?=$codigo?>">
+                                <input type="hidden" name="accion" value="eliminar">
+                                <input id="btn2" type="submit" value="X">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php
+                        $opcionesCarrito = 1;
+                        }
+                    }//cierre foreach
+                        //pone el boton de realizar pedido y el de vaciarlo
+                        if($opcionesCarrito == 1){
+                    ?>
+                    <tr>
+                        <td colspan="4"><h3>Total: <?php echo $total; ?> €</h3></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <form action="finalizarPedido.php" method="GET">
+                                <input type="hidden" name="codigo" value="<?=$codigo?>">
+                                <input type="hidden" name="accion" value="vaciarCarrito">
+                                <input id="btn1" type="submit" value="Finalizar">
+                            </form>
+                        </td>
+                        <td colspan="2">
+                            <form action="vaciarCarrito.php" method="GET">
+                                <input type="hidden" name="accion" value="vaciarCarrito">
+                                <input id="btn2" type="submit" value="Vaciar Cesta">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php
+                        } else {
+                    ?>
+                    <tr>
+                        <td><p style="text-align: center;">Carrito Vacio</p></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </table> <!--cierre de la tabla carrito-->
+            </div><!--cierre carrito luego sidebar -->
             </div>
             <div id="footer">
                 <h3>&copy;2017 by BrandConstantin</h3>

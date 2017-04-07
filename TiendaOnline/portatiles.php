@@ -1,94 +1,15 @@
-<?php 
+<?php
     error_reporting(E_ALL ^ E_NOTICE); //no muestra error de variables indefinida
     session_start();// Inicia la sesión
-
+/*
     //inicializa el carrito a cero
     if(!isset($_SESSION['carrito'])){
         $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
         //$_SESSION['total'] = 0;
     }
-            
-    $_SESSION['gastosEnvio'] = 0;                       
-      
-    if(!isset($_SESSION['articulos'])){
-        $_SESSION['articulos'] = array(
-            $acer = array(
-                //'key' => 'acer01pc',
-                'nombre' => 'Acer',
-                'precio' => 670,
-                'imag' => 'img/acer.jpeg',
-                'detalle' => 'CPU: AMD A4 5300; Grafica: ASUS GeForce GTX 960; RAM: 8Gb; Disco: Toshiba Canvio Basics;',
-                'categoria' => "portatil",                
-                'novedad' => 'no',
-                'oferta' => 'si'),
-            $asus = array(
-                //'key' => 'asus01pc',
-                'nombre' => 'Asus',
-                'precio' => 770,
-                'imag' => 'img/asus.jpeg',
-                'detalle' => 'CPU: Intel Core i5 4930k; Grafica: ASUS GTX750-PHOC; RAM: 12Gb; Disco: Western Digital Elements;',
-                'categoria' => "portatil",                
-                'novedad' => 'no',
-                'oferta' => 'no'),
-            $hp = array(
-                //'key' => 'hp01pc',
-                'nombre' => 'Hp',
-                'precio' => 795,
-                'imag' => 'img/hp.jpeg',
-                'detalle' => 'CPU: AMD Sempron 145; Grafica: Gigabyte GeForce GTX 660; RAM: 32Gb; Disco: Seagate BackUp;',
-                'categoria' => "portatil",                
-                'novedad' => 'no',
-                'oferta' => 'no'),
-            $msi = array(
-                //'key' => 'msi01pc',
-                'nombre' => 'Msi',
-                'precio' => 1170,
-                'imag' => 'img/msi.jpeg',
-                'detalle' => 'CPU: AMD FX FX-6200; Grafica: Sapphire Radeon HD 5450; RAM: 8Gb; Disco: Transcend Store Canvio;',
-                'categoria' => "portatil",                
-                'novedad' => 'si',
-                'oferta' => 'no'),
-            $samsung = array(
-                //'key' => 'samsung01pc',
-                'nombre' => 'Samsung',
-                'precio' => 980,
-                'imag' => 'img/samsung.jpeg',
-                'detalle' => 'CPU: Intel Core i7-3820; Grafica: EVGA Geforce 210; RAM: 12Gb; Disco: Seagate STBX1000201',
-                'categoria' => "portatil",                
-                'novedad' => 'no',
-                'oferta' => 'si'),
-            $yamaha = array(
-                //'key' => 'yamaha01voz',
-                'nombre' => 'Yamaha',
-                'precio' => 22,
-                'imag' => 'img/yamaha.jpg',
-                'detalle' => 'Potencia 120W, Frecuencia 34Mz ',
-                'categoria' => "altavoces",                
-                'novedad' => 'no',
-                'oferta' => 'si'),
-            $samsungj3 = array(
-                //'key' => 'samsung01mob',
-                'nombre' => 'Samsung J3',
-                'precio' => 149,
-                'imag' => 'img/j3.jpg',
-                'detalle' => 'Procesador QuadCore 1,5Ghz, 8Gb, Camara 8Mp, Camara secundaria 5Mp ',
-                'categoria' => "movil",                
-                'novedad' => 'no',
-                'oferta' => 'si'),
-            $samsungj5= array(
-                //'key' => 'samsung02mob',
-                'nombre' => 'Samsung J5',
-                'precio' => 219,
-                'imag' => 'img/j5.jpg',
-                'detalle' => 'Procesador QuadCore 1,5Ghz, 16Gb, Camara 13Mp, Camara secundaria 5Mp  ',
-                'categoria' => "movil",                
-                'novedad' => 'si',
-                'oferta' => 'no'),
-        );  
-    }
-    
-    $articulos = $_SESSION['articulos'];
+*/
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -119,9 +40,16 @@
                 </div>
             </div>
             <div id="contentarea">
+            <h1>Portatiles</h1>
                 <!--mostrar los articulos-->
                     <?php
+                    $codigo = $_GET['codigo'];    
+                    $articulos = $_SESSION['articulos'];
+                    $elemento = $articulos[$codigo];
+                    //$novedad = $_SESSION['novedad'];
+                    
                     foreach ($articulos as $clave => $elemento) {
+                        if($elemento['categoria'] == 'portatil'){
                     ?>
                     <div class="products">
                         <img src="<?=$elemento['imag']?>" width="160px" height="160px" border="1"><br>
@@ -140,6 +68,7 @@
                         </form>
                     </div>
                     <?php
+                        }
                     } //cierre del foreach
                     ?>
             </div>
@@ -202,39 +131,25 @@
                     <input type="hidden" name="action" value="yamaha">
                     <input id="btn1" type="submit" value="Yamaha">
                 </form>
-                <hr>
-                <hr>
-                <!--carrito de la compra -->
-            <?php
+                <!-- carrito de compra -->
+                <?php
                 $codigo = $_GET['codigo'];
                 $accion = $_GET['accion'];
-                $vaciarCarrito = $_POST['vaciarCarrito'];
                 
-                //añadir prod al carrito
                 if($accion == "comprar"){
                     $_SESSION['carrito'][$codigo]++;
                 }
                 
-                //borrar producto
-                if($accion == "eliminar" ){
+                if($accion == "eliminar"){
                     $_SESSION['carrito'][$codigo] = 0;
                 }
                 
-                //vaciar carrito
-                /*if($accion == "vaciarCarrito"){
+                if($accion == "vaciarCarrito"){
                     foreach ($articulos as $clave => $elemento) {
                         $_SESSION['carrito'][$elemento['nombre']] = 0;
                     }
-                }*/
+                }
                 
-                if($accion == $_SESSION["vaciarCarrito"]){
-                    //inicializa el carrito a cero
-                    foreach ($articulos as $clave => $elemento) {
-                        $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
-                    }
-                } 
-                                    
-                //modificar cantidad
                 if($accion == "modificarCantidad"){
                     $_SESSION['carrito'][$codigo] = $_GET['cantidad'];
                 }
@@ -243,16 +158,16 @@
             <div id="carrito">
                 <h4>Carrito</h4>
                 <table id="table">
-                    <tr>
-                        <td>Producto</td>
-                        <td>Cantidad</td>
-                        <td colspan="2">Precio</td>
-                    </tr>
                     <?php
                     foreach ($articulos as $codigo => $elemento) {
                         if($_SESSION['carrito'][$codigo] > 0){
                             $total = $total + ($_SESSION['carrito'][$codigo] * $elemento['precio']);
                     ?>
+                    <tr>
+                        <td>Producto</td>
+                        <td>Cantidad</td>
+                        <td colspan="2">Precio</td>
+                    </tr>
                     <tr>
                         <td> 
                             <img src="<?=$elemento['imag']?>" width="160px" border="1"><br>
@@ -304,16 +219,13 @@
                         } else {
                     ?>
                     <tr>
-                        <td colspan="3"><p style="text-align: center;">Carrito Vacio</p></td>
+                        <td><p style="text-align: center;">Carrito Vacio</p></td>
                     </tr>
                     <?php
                         }
                     ?>
                 </table> <!--cierre de la tabla carrito-->
             </div><!--cierre carrito luego sidebar -->
-            </div>
-            <div id="footer">
-                <h3>&copy;2017 by BrandConstantin</h3>
             </div>
         </div>
     </body>

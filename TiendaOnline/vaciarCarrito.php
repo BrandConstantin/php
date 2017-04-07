@@ -1,18 +1,15 @@
-<?php 
+<?php
     error_reporting(E_ALL ^ E_NOTICE); //no muestra error de variables indefinida
     session_start();// Inicia la sesión
-
+/*
     //inicializa el carrito a cero
     if(!isset($_SESSION['carrito'])){
         $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
         //$_SESSION['total'] = 0;
     }
-            
-    //cupon descuento
-    if(!isset($_SESSION['gastosEnvio'])){
-        $_SESSION['gastosEnvio'] = 0;
-    }
+*/
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,135 +40,63 @@
                 </div>
             </div>
             <div id="contentarea">
-                <?php
-                    $total = 0;
-                    
-                    //sesión de los articulos mantenida abierta
+            <h1>Eliminar todo los productos</h1>
+            <p>Estas seguro de que quieres eliminar todos los producto?</p>
+                <!--mostrar los articulos-->
+                    <?php
+                    $codigo = $_GET['codigo'];    
                     $articulos = $_SESSION['articulos'];
+                    $elemento = $articulos[$codigo];
                     
-                    //carrito de la compra 
-                        $codigo = $_GET['codigo'];
-                        $accion = $_GET['accion'];
-
-                        if($accion == "comprar"){
-                            $_SESSION['carrito'][$codigo]++;
-                        }
-
-                        if($accion == "eliminar"){
-                            $_SESSION['carrito'][$codigo] = 0;
-                        }
-
-                        if($accion == "vaciarCarrito"){
-                            foreach ($articulos as $clave => $elemento) {
-                                $_SESSION['carrito'][$elemento['nombre']] = 0;
-                            }
-                        }
-
-                        if($accion == "modificarCantidad"){
-                            $_SESSION['carrito'][$codigo] = $_GET['cantidad'];
-                        }
+                    //$total = 0;
+                    //$novedad = $_SESSION['novedad'];
                     ?>
                     <div id="carrito">
                         <h4>Carrito</h4>
                         <table id="table">
-                            <?php
-                            foreach ($articulos as $codigo => $elemento) {
-                                if($_SESSION['carrito'][$codigo] > 0){
-                                    $total = $total + ($_SESSION['carrito'][$codigo] * $elemento['precio']);
-                            ?>
                             <tr>
                                 <td>Producto</td>
-                                <td>Cantidad</td>
-                                <td colspan="2">Precio</td>
+                                <td>Unidades</td>
                             </tr>
+                            <?php
+                            foreach ($articulos as $clave => $elemento) {
+                                if($_SESSION['carrito'][$clave] > 0){
+                                    $total = $total + ($_SESSION['carrito'][$clave] * $elemento['precio']);
+                            ?>
                             <tr>
                                 <td> 
                                     <img src="<?=$elemento['imag']?>" width="160px" border="1"><br>
                                      <?=$elemento['nombre']?>
                                 </td>
                                 <td>
-                                    <form action="finalizarPedido.php" method="GET">
-                                            <input type="number" id="cantidad" name="cantidad" value="<?= $_SESSION['carrito'][$codigo]; ?>" min="0" max="99" style="width: 35px; margin-bottom: 5px;" >
-                                            <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                            <input type="hidden" name="accion" value="modificarCantidad">
-                                            <input id="ok" type="submit" value="Ok">
-                                    </form>
-                                </td>
-                                <td><h4><?=$elemento['precio']?> €</h4></td>
-                                <td>
-                                    <form action="eliminar.php" method="GET">
-                                        <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                        <input type="hidden" name="accion" value="eliminar">
-                                        <input id="btn2" type="submit" value="X">
-                                    </form>
+                                    <?= $_SESSION['carrito'][$clave] ?> uds
                                 </td>
                             </tr>
                             <?php
                                 $opcionesCarrito = 1;
                                 }
-                            }//cierre foreach
-                            //
-                            if($_GET['accion'] == 'gastosEnvio' && $total < 150){
-                                $_SESSION['gastosEnvio'] = $_GET['gastosEnvio'];
-                                $total += $_SESSION['gastosEnvio'];
-                            }else{
-                                $_SESSION['gastosEnvio'] = 0;
-                            }
-                            
-                            if($total >= 300){
-                                $descuento = $total * (5 / 100);
-                                $total = $total - $descuento;
-                                //$porcentaje = 10;
-                            }else{
-                                //$porcentaje = 0;
-                                $descuento = 0;
-                            }
+                            }//cierre foreach                                                        
                             
                                 //pone el boton de realizar pedido y el de vaciarlo
                                 if($opcionesCarrito == 1){
                             ?>
                             <tr>
-                                <td colspan="4">
-                                    <form action="finalizarPedido.php" method="get" style="text-align: center;">
-                                        <h4>Gastos de envio:</h4><br>
-                                        <select id="gastosEnvio" name="gastosEnvio" >
-                                            <option value="9">España</option>
-                                            <option value="14">Europa</option>
-                                            <option value="21">Resto Del Mundo</option>
-                                        </select>
-                                        <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                        <input type="hidden" name="accion" value="gastosEnvio">
-                                        <input id="btn1" type="submit" value="Ok">
-                                    </form>
-                                 </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <h4>
-                                        Descuento: <?php echo $descuento; ?> € </br>
-                                        <p>(5% por pedidos > 299)</p>
-                                        <hr>
-                                        <!--Porcentaje: <?php //(echo $porcentaje; ?>% </br>-->
-                                        <hr>
-                                        Gastos de Envio: <?php echo $_SESSION['gastosEnvio']; ?> € </br>
-                                        <p>(Envio gratis por pedidos > a 150€)</p><br>
-                                        <hr>
-                                        Total: <?php echo $total;?> €
-                                    </h4>
+                                <td colspan="2">
+                                    <h4>Total: <?= $total ?> €</h4>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    <form action="vaciarCarrito.php" method="GET">
+                                <td>
+                                    <form action="index.php" method="GET">
+                                        <input type="hidden" name="codigo" value="<?=$codigo?>">
                                         <input type="hidden" name="accion" value="vaciarCarrito">
                                         <input id="btn2" type="submit" value="Vaciar Cesta">
                                     </form>
                                 </td>
-                                <td colspan="2">
-                                    <form action="realizarPedido.php" method="GET">
-                                        <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                        <input type="hidden" name="accion" value="vaciarCarrito">
-                                        <input id="btn1" type="submit" value="Finalizar">
+                                <td>
+                                    <form action="index.php" method="GET">                                        
+                                        <input type="hidden" name="accion" value="inicio">
+                                        <input id="btn1" type="submit" value="Inicio">
                                     </form>
                                 </td>
                             </tr>
@@ -207,6 +132,14 @@
                 <form action="altavoces.php" method="GET" style="text-align: center;">
                     <input type="hidden" name="action" value="altavoces">
                     <input id="btn1" type="submit" value="Altavoces">
+                </form> 
+                <form action="novedades.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="novedad">
+                    <input id="btn1" type="submit" value="Novedades">
+                </form> 
+                <form action="ofertas.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="ofertas">
+                    <input id="btn1" type="submit" value="Ofertas">
                 </form> 
             <hr>
             <hr>

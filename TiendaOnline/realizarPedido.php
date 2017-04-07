@@ -33,14 +33,21 @@
                 </div>
             </div>
             <div id="contentarea">
-                <h1>PEDIDO REALIZADO CORRECTAMENTE</h1>
-                <h3>En menos de 3 horas el pedido se enviara a su destino</h3>
+                <h1>ACCTIÓN REALIZADA CORRECTAMENTE</h1>
                 <?php
                     //if($accion == "vaciarCarrito"){
-                        foreach ($articulos as $clave => $elemento) {
-                            $_SESSION['carrito'][$elemento['nombre']] = 0;                            
+                        foreach ($_SESSION['articulos'] as $clave => $elemento) {
+                            //inicializa el carrito a cero
+                            if(isset($_SESSION['carrito'])){
+                                $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
+                                //$_SESSION['total'] = 0;
+                                header("Refresh: 5; url=index.php");//esto redirecciona a otra pagina
+                            }else{
+                                ?>
+                                <p style="text-align: center;">Carrito Vacio</p>
+                                <?php
+                            }
                         }
-                        header("Refresh: 2; url=index.php");//esto redirecciona a otra pagina
                     //}                        
                 ?>
             </div>
@@ -71,9 +78,9 @@
                 <ul id="items">
                     <?php //getBrands(); ?>
                 </ul>
-                <form action="samnsung.php" method="GET" style="text-align: center;">
-                    <input type="hidden" name="action" value="samnsung">
-                    <input id="btn1" type="submit" value="Samnsung">
+                <form action="samsung.php" method="GET" style="text-align: center;">
+                    <input type="hidden" name="action" value="samsung">
+                    <input id="btn1" type="submit" value="Samsung">
                 </form>
                 <form action="asus.php" method="GET" style="text-align: center;">
                     <input type="hidden" name="action" value="asus">
