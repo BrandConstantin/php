@@ -49,8 +49,9 @@
                     $elemento = $articulos[$codigo];
                     //$novedad = $_SESSION['novedad'];
                     
-                    //foreach ($articulos as $clave => $elemento) {
-                       // if(($elemento['nombre'] == 'Acer')){
+                    foreach ($articulos as $clave => $elemento) {
+                         if($_SESSION['carrito'][$clave]){
+                            $total = $total + ($_SESSION['carrito'][$clave] * $elemento['precio']);
                     ?>
                     <div class="products">
                         <img src="<?=$elemento['imag']?>" width="160px" height="160px" border="1"><br>
@@ -65,9 +66,14 @@
                         </form>
                     </div>
                     <?php
-                        //}
-                    //} //cierre del foreach
+                        }
+                    } //cierre del foreach
                     ?>
+                <br><br><br><br><br>
+                        <form action="index.php" method="GET">
+                            <input type="hidden" name="accion" value="inicio">
+                            <input id="btn1" type="submit" value="Inicio">
+                        </form>
             </div>
             <div id="sidebar">
                 <div id="sidebar_title">Categorias:</div>

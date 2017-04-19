@@ -30,7 +30,7 @@ do{
     
     /*Comprobamos que no se repitan las cartas*/
     if (!in_array($carta, $cartasEchadas)){//comprueba que la carta no se repita  
-        $cartasEchadas[$i] = $carta; // la meto en un array en el q compruebo que no saco la misma carta
+        $cartasEchadas[] = $carta; // la meto en un array en el q compruebo que no saco la misma carta
         echo "<div>$carta - $puntosCartas puntos<br></div>";//muestro la carta no repetida
         $puntosTotales += $puntosCartas; // suma puntos carta
         

@@ -41,7 +41,7 @@
             </div>
             <div id="contentarea">
                 <?php                                 
-                //carrito de la compra 
+                //detalles
                 $codigo = $_GET['codigo'];       
                 
                 //sesión de los articulos mantenida abierta

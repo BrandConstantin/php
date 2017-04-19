@@ -208,7 +208,6 @@
             <?php
                 $codigo = $_GET['codigo'];
                 $accion = $_GET['accion'];
-                $vaciarCarrito = $_POST['vaciarCarrito'];
                 
                 //añadir prod al carrito
                 if($accion == "comprar"){
@@ -225,15 +224,16 @@
                     foreach ($articulos as $clave => $elemento) {
                         $_SESSION['carrito'][$elemento['nombre']] = 0;
                     }
-                }*/
+                }
                 
-                if($accion == $_SESSION["vaciarCarrito"]){
-                    //inicializa el carrito a cero
-                    foreach ($articulos as $clave => $elemento) {
+                //inicializa el carrito a cero
+                foreach ($articulos as $clave => $elemento) {*/
+                    if($accion == 'vaciarCarrito'){
                         $_SESSION['carrito'] = ["acer" => 0, "asus" => 0, "hp" => 0, "msi" => 0, "samsung" => 0, "yamaha" => 0, "samsungj3" => 0, "samsungj5" => 0];
+                        session_destroy();
                     }
-                } 
-                                    
+                //}
+                
                 //modificar cantidad
                 if($accion == "modificarCantidad"){
                     $_SESSION['carrito'][$codigo] = $_GET['cantidad'];
@@ -289,7 +289,7 @@
                         <td colspan="2">
                             <form action="finalizarPedido.php" method="GET">
                                 <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                <input type="hidden" name="accion" value="vaciarCarrito">
+                                <input type="hidden" name="accion" value="finalizar">
                                 <input id="btn1" type="submit" value="Finalizar">
                             </form>
                         </td>

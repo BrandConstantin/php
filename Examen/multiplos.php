@@ -14,9 +14,11 @@ y el resto de números en negro
     </head>
     <body>
         <?php
+            error_reporting(E_ALL ^ E_NOTICE);
+            
             $numIntro = $_GET['numIntro'];
             $numeros = $_GET['numeros'];
-            $contador = $_GET['contador'];
+            $contador = $_GET['contador'];            
              
             if (!isset($numIntro)) {
                 $contador = 0;//para que el campo ++numeros sea 0
@@ -56,7 +58,7 @@ y el resto de números en negro
         <form action="multiplos.php" method="get">
             Introduzca un número: <input type="number" name="numIntro" autofocus>
             <input type="hidden" name="numeros" value="<?= $numeros . "-" . $numIntro ?>">
-            <input type="hidden" name="contador" value="<?= ++$contador ?>">
+            <input type="hidden" name="contador" value="<?= $contador++ ?>">
             <input type="submit" value="Introducir">
         </form>
         <?php

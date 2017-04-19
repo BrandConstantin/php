@@ -88,9 +88,9 @@
                             <tr>
                                 <td>
                                     <form action="index.php" method="GET">
-                                        <input type="hidden" name="codigo" value="<?=$codigo?>">
+                                        <input type="hidden" name="codigo" value="<?= $codigo ?>">
                                         <input type="hidden" name="accion" value="vaciarCarrito">
-                                        <input id="btn2" type="submit" value="Vaciar Cesta">
+                                        <input id="btn2" type="submit" value="Vaciar Carrito">
                                     </form>
                                 </td>
                                 <td>
@@ -99,15 +99,9 @@
                                         <input id="btn1" type="submit" value="Inicio">
                                     </form>
                                 </td>
-                            </tr>
-                            <?php
-                                } else {
-                            ?>
-                            <tr>
-                                <td><p style="text-align: center;">Carrito Vacio</p></td>
-                            </tr>
-                            <?php
-                                }
+                            </tr>                               
+                            <?php                             
+                                    }
                             ?>
                         </table> <!--cierre de la tabla carrito-->
                     </div><!--cierre carrito luego sidebar -->

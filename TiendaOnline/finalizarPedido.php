@@ -170,7 +170,7 @@
                                 <td colspan="2">
                                     <form action="realizarPedido.php" method="GET">
                                         <input type="hidden" name="codigo" value="<?=$codigo?>">
-                                        <input type="hidden" name="accion" value="vaciarCarrito">
+                                        <input type="hidden" name="accion" value="finalizar">
                                         <input id="btn1" type="submit" value="Finalizar">
                                     </form>
                                 </td>

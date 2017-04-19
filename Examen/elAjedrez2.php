@@ -69,9 +69,7 @@ El valor de cada pieza se debe almacenar en un array asociativo.
                     
         if ($jugadorB >= 9) {
             echo '<br>El jugador negro se ha rendido, ha perdido ', $puntosJugB, ' peones';
-        }
-
-        if ($jugadorN >= 9) {
+        }else {
             echo '<br>El jugador blanco se ha rendido, ha perdido ', $puntosJugN, ' peones';
         }
         ?>

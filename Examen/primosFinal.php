@@ -86,15 +86,15 @@ desprecia. A continuación se debe mostrar el contenido de ese array junto al í
             $valueMezcla;
             $i = 0;
             
-            foreach ($cadenaPrimos as $value) {
-                $valueMezcla[$i] = $value;
-                $i++;
-            }
-            
             foreach ($cadenaNoPrimos as $value) {
                 $valueMezcla[$i] = $value;
                 $i++;
             }
+            
+            foreach ($cadenaPrimos as $value) {
+                $valueMezcla[$i] = $value;
+                $i++;
+            }           
             
             //muestra el array original
             echo 'ARRAY ORIGINAL<br>';
