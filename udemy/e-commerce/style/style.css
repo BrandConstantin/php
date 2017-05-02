@@ -69,22 +69,22 @@ body{
     padding-top: 20px;
 }
 
-#container{
+#main_wrapper{
     width: 900px;
     height: 100%;
     height: auto;
     margin: auto;
 }
 
-#header{
-    width: 900px;
+#header_wrapper{
+    width: 80%;
     height: 150px;
     margin: auto;
     background-color: coral;
     opacity: 0.7;
 }
 
-#header h1{
+#header_wrapper h1{
     display: inline;
     color: #000;
     padding-left: 40px;
@@ -97,19 +97,16 @@ body{
 }
 
 #contentarea, #contentarea2{
-    width: 800px;
-    height: 100%;
-    margin: auto;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
     background-color: coral;
     opacity: 0.7;
-    float: right;
 }
 
 #contentarea2{
-    width: 900px;
-    margin: 0 auto;
     padding-top: 50px;
-    margin-top: 30px;
+    margin-top: 130px;
     padding-bottom: 50px;
 }
 
@@ -118,7 +115,7 @@ body{
 }
 
 #table{
-    width: 800px;
+    width: 80%;
     height: auto;
     margin: 0 auto;
     color: #fff;
@@ -144,11 +141,11 @@ body{
 
 #footer{
     background-color: coral;
-    width: 900px;
+    width: 80%;
     height: 50px;
+    margin: 0 auto;
     opacity: 0.7;
-    position: absolute;
-    bottom: -100px;
+    margin-top: 100px;
 }
 
 #footer h3{
@@ -158,10 +155,13 @@ body{
 }
 
 #menubar{
-    width: 900px;
+    width: 80%;
     height: 50px;
     background-color: black;
     color: #fff;
+    float: right;
+    margin-top: 80px;
+    position: absolute;
 }
 
 #menu{
@@ -202,24 +202,24 @@ body{
     padding-top: 20px;
 }
 
-#items{
+#cat{
     padding: 0;
     margin-top: 20px;
 }
 
-#items li{
+#cat li{
     padding-top: 20px;
     padding-left: 35px;
 }
 
-#items a{
+#cat a{
     color: #fff;
     font-size: 15px;
     text-transform: capitalize;
     text-decoration: underline;
 }
 
-#items a:hover{
+#cat a:hover{
     color: coral;
     text-decoration: none;
 }
