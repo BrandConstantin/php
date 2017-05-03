@@ -37,7 +37,6 @@ h1{
     display: block;
     transition: .25s;
     color: #fff;
-    text-align: center;
 }
 
 .collection .collection-item.active {
