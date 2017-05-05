@@ -19,9 +19,9 @@
         <meta name="author" content="BrandConstantin">
     </head>
     <body>
-        <div class="container blue lighten-5">
+        <div class="container blue lighten-3">
             <div class="row">
-                <div class="s12 m12 l12 xl12 blue darken-5">
+                <div class="s12 m12 l12 xl12 red lighten-2">
                     <img id="logo" class="circle responsive-img" src="img/logo.jpeg"/>    
                     <h1>Tienda PcOnline</h1>
                 </div>   
@@ -61,11 +61,15 @@
                         $tableProducts = "products";
                         $totalProducts = $connection->query("select * from $tableProducts");
                         
+                        //comprobar acción a realizar
+
+                        /*
                         $fileNumber = 3;
                         $secondField = false;
                         $thirdField = false;
                         $fourthField = false;
                         $prodId = "prodId";
+                        $prodName = "prodName";
                         $prodDesc = "prodDesc";
                         $prodBuy = "prodBuy";
                         $prodSell = "prodSell";
@@ -79,6 +83,7 @@
                         if(isset($_POST['limit'])){
                             $limit = $_POST['limit'];
                         }
+                        
                         if(!isset($limit)){
                             $limit = 10;
                         }
@@ -93,7 +98,7 @@
                         //la página vuelve a la anterior si ya no quedan filas en la actual
                         if($_SESSION['page'] > (ceil($totalProducts->rowCount() / $fileNumber))){
                             $_SESSION['page']--;
-                        }
+                        }*/
                         
                         //umbral de aviso (formulario)
                     ?>
@@ -113,29 +118,24 @@
                     <?php
                         //listado tabla
                         if($_POST['action'] == ""){
-                            $list = $connection->query("select * from $tableProducts order by 1 limit"
-                                    .($_SESSION['page'] - 1) * $fileNumber.", ".$fileNumber);
-                        }else{
+                            $list = $connection->query("select * from $tableProducts order by 1");
+                                    //." limit ".($_SESSION['page'] - 1) * $fileNumber.", ".$fileNumber);
+                        }
                     ?>
-                    <table class="striped">
+                    <table class="highlight blue lighten-3 responsive-table">
                         <thead>
                             <tr>
                                 <th>Código</th>
+                                <th>Nombre</th>
                                 <th>Descripción</th>
                                 <th>Precio-Compra</th>
                                 <th>Precio-Venta</th>
                                 <th>Stock</th>
-                            </tr>
-                            <tr>
-                        <!--<form action="#" method="post">
-                            <td><input type="text" maxlength="10" size="10" name="<?= $prodId ?>" required autofocus></td>
-                            <td><input type="text" maxlength="500" size="10" name="<?= $prodDesc ?>"></td>
-                            <td><input type="number" name="<?= $prodBuy ?>"></td>
-                            <td><input type="number" name="<?= $prodSell ?>"></td>
-                            <td><input type="number" name="<?= $stock ?>"></td>
-                            <input type="hidden" name="action" value="register"/>
-                            <td><button type="submit" class="blueButton" value="Submit"><i class="fa fa-check-circle fa-lg"></i></button></td>
-                        </form>-->
+                                <th>Aviso</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <?php
@@ -144,24 +144,92 @@
                         <tbody>
                             <tr>
                                 <td><?= $products->$prodId; ?></td>
+                                <td><?= $products->$prodName; ?></td>
                                 <td><?= $products->$prodDesc; ?></td>
-                                <td><?= $products->$prodBy; ?></td>
+                                <td><?= $products->$prodBuy; ?></td>
                                 <td><?= $products->$prodSell; ?></td>
                                 <td><?= $products->$stock; ?></td>
+                                <td>
                                 <?php
-                                    //mostrar umbral de aviso
-                                    if($products->$stock < $limit){
-                                        ?>
-                                <td><strong><?= $products->$stock; ?></strong></td>
+                                //mostrar umbral de aviso
+                                if($products->$stock < $limit){
+                                    ?>
+                                <strong style="color:#d34; font-size: 1.7em;"><?= $products->$stock; ?></strong>
                                 <?php
-                                    }
-                            }
+                                }else{
+                                    ?>
+                                <?= $products->$stock; ?>
+                                    <?php
+                                }
                                 ?>
+                                </td>
+                                <td>
+                                    <form action="#" method="post">
+                                      <input type="hidden" name="<?= $prodId ?>" value="<?= $products->$prodId ?>"/>
+                                      <input type="hidden" name="action" value="increase"/>
+                                      <button type="submit" class="btn-floating btn-small waves-effect waves-light green" value="increase"><i class="material-icons">add</i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method="post">
+                                      <input type="hidden" name="<?= $prodId ?>" value="<?= $products->$prodId ?>"/>
+                                      <input type="hidden" name="action" value="decrease"/>
+                                      <button type="submit" class="btn-floating btn-small waves-effect waves-light red" value="decrease"><i class="material-icons">remove</i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method="post">
+                                      <input type="hidden" name="<?= $prodId ?>" value="<?= $products->$prodId ?>"/>
+                                      <input type="hidden" name="action" value="modify"/>
+                                      <button type="submit" class="btn-floating btn-small waves-effect waves-light blue" value="modify"><i class="material-icons">mode_edit</i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#" method="post">
+                                      <input type="hidden" name="<?= $prodId ?>" value="<?= $products->$prodId ?>"/>
+                                      <input type="hidden" name="action" value="remove"/>
+                                      <button type="submit" class="btn-floating btn-small waves-effect waves-light red" value="remove"><i class="material-icons">delete</i></button>
+                                    </form>
+                                </td>
+                                <?php
+                            }
+                            ?>
+                            </tr>
+                            <tr>
+                                <td colspan="11"><strong style="color:#e57373; font-size: 1.7em;">Añade Nuevo Producto</strong></td>
+                            </tr>
+                            <tr>                                                                  
+                                <form action="#" method="post"> 
+                                    <td>
+                                        <input type="hidden" class="validate" name="<?= $prodId ?>" value="<?= $products->$prodId; ?>"/>
+                                    </td>
+                                     <td>
+                                         <label for="prodName">Nombre Producto</label>
+                                        <input type="text" class="validate" name="<?= $prodName ?>" value="<?= $products->$prodName; ?>"/>
+                                    </td>
+                                    <td>
+                                        <label for="prodDesc">Descripción Producto</label>
+                                        <input type="text" class="validate" name="<?= $prodDesc ?>" value="<?= $products->$prodDesc; ?>"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <label for="prodBuy">Precio-Compra Producto</label>
+                                        <input type="number" class="validate" name="<?= $prodBuy ?>" value="<?= $products->$prodBuy; ?>"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <label for="prodSell">Precio-Venta Producto</label>
+                                        <input type="number" class="validate" name="<?= $prodSell ?>" value="<?= $products->$prodSell; ?>"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <label for="stock">Total Productos (Stock)</label>
+                                        <input type="number" name="<?= $stock ?>" value="<?= $products->$stock; ?>"/>
+                                    </td>
+                                    <td colspan="2">
+                                        <input type="hidden" name="action" value="register"/>                                        
+                                        <button type="submit" class="btn-floating btn-small waves-effect waves-light green" value="register"><i class="material-icons">send</i></button>
+                                    </td>
+                                </form>
                             </tr>
                         </tbody>
-                        <?php
-                            }
-                        ?>
                     </table>
                 </div>
             </div>

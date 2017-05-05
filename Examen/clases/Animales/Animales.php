@@ -7,8 +7,8 @@ class Animales{
     
     public function __construct($sxo, $anio, $pso) {
         //si no se inicializa el sexo se atribuye por defecto "macho"
-        if(!isset($sxo)){
-            $this->sexo = "macho";
+        if(isset($sxo)){
+            $this->sexo = $sxo;
         }else{
             $this->sexo = "hembra";
         }
@@ -34,7 +34,7 @@ class Animales{
     function getPeso() {
         return $this->peso;
     }
-
+    
     public function come($come){
         return "Comó $come";
     }
@@ -49,7 +49,7 @@ class Animales{
     
     public function __toString() {
         return "<br>Sexo del animal: $this->sexo";
-        return "<br>Edad del animal: $this->anios";
-        return "<br>Peso del animal: $this->peso";
+        return "<br>Edad del animal: $anio";
+        return "<br>Peso del animal: $this->pso";
     }
 }

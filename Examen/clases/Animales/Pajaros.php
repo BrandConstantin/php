@@ -16,14 +16,12 @@ class Pajaros extends Animales{
     }
     
     public function poneHuevos(){
-        if($this->getSexo() == "macho"){
+        if(($this->getSexo() == "macho") && ($this->getAnios() >= 2)){
             return "Soy macho, no puedo poner huevos";
-        } else {
-            if($this->getAnios() <= 2){
-                return "Soy demasiado joven para poner huevos!";
-            } else {
-                return "Ahora mismo....";
-            }
+        }else if(($this->getAnios() >= 2) && ($this->getSexo() != "macho")){
+            return "Ahora mismito....";
+        }else {
+            return "Soy demasiado joven para poner huevos!";
         }
     }
 }
