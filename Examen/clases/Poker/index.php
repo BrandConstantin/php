@@ -29,7 +29,7 @@ Poker::setTotalTiradas($_SESSION['totalTiradas']);
         
         foreach ($dado as $v) {
             $v->caraTirada();
-            echo ($v->cara())." ";
+            echo ($v->nombreCara())." ";
         }
         
         echo "<br>Total tiradas del dado: ".Poker::getTotalTiradas();

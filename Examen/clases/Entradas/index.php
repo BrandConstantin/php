@@ -43,7 +43,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         $nombreZona = $_POST['nombreZona'];
         $entradasDisponibles = $_POST['entradasDisponibles'];
         $_SESSION['zona' . $i] = serialize(new Entradas($nombreZona, $entradasDisponibles));  
-        $_SESSION['zonas'][] = $_SESSION['zona' . $i] = serialize(new Entradas($nombreZona, $entradasDisponibles));
+        $_SESSION['zonas'][$i] = $_SESSION['zona' . $i] = serialize(new Entradas($nombreZona, $entradasDisponibles));
     }
 
     foreach ($_SESSION['zonas'] as $zona) {
