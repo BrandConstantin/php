@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL ^ E_NOTICE); //no muestra error de variables indefinida
 include_once './Coche.php';
 include_once './Motos.php';
 
@@ -12,7 +12,7 @@ include_once './Motos.php';
     <body>
         <?php
             //crear un coche
-            $coche1 = new Coche(1900, 3);
+            $coche1 = new Coche("", "", 1900, 3);
             $coche1->recure(55);
             
             echo "El coche1 accelera ".$coche1->accelerar()."<br>";
@@ -22,7 +22,7 @@ include_once './Motos.php';
             echo "<br>El coche va a recorrer otros km el total siendo de ". $coche1->getKmRecuridos();         
             echo "<br>Total km acumulados por este coche: ". $coche1->getTotalKm();
             
-            $coche2 = new Coche(1800, 5);
+            $coche2 = new Coche("", "", 1800, 5);
             $coche2->recure(155);
             
             echo "<br><br><br>El coche2 accelera ".$coche2->accelerar();
@@ -33,7 +33,7 @@ include_once './Motos.php';
             //echo "<br>Total km acumulados por este coche: ". $coche2->getTotalKm();
             
             //crear moto
-            $moto = new Motos(270, "azul-amarillo");
+            $moto = new Motos("", "", 270, "azul-amarillo");
             $moto->recure(350);
             echo "<br><br><br>La moto ha recurido la ultima vez un total de ".$moto->getKmRecuridos();
             $moto->recure(190);
