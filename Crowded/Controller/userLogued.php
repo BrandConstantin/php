@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once '..Model/user.php';
+require_once '../Model/crowdedDB.php';
 
 //recive the pass and the name of the userthrown in /home/costy/NetBeansProjects/Crowded/View/signInUser.php on line 37
 $user = $_POST['userName'];
