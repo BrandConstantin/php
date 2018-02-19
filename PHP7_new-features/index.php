@@ -10,7 +10,9 @@
 <a href="lesson10.php">Lesson10</a>
 <a href="lesson11.php">Lesson11</a>
 <a href="lesson12.php">Lesson12</a>
-<a href="lesson13.php">Lesson13</a>
+<a href="lesson13b.php">Lesson13</a>
 <a href="lesson14.php">Lesson14</a>
 <a href="lesson15.php">Lesson15</a>
 <a href="lesson16.php">Lesson16</a>
+<a href="lesson17.php">Lesson17</a>
+<a href="lesson18.php">Lesson18</a>

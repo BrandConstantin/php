@@ -15,3 +15,4 @@ lesson 14 - integer division
 lesson 15 - session options
 lesson 16 - random bytes and random int function
 lesson 17 - revamped regular expression function
+lesson 18 - generators
