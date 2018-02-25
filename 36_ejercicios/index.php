@@ -32,7 +32,7 @@ and open the template in the editor.
         <a href="ejercicio20.php">Ejercicio 20 (filter_var)</a><br/>
         <a href="ejercicio21.php">Ejercicio 21</a><br/>
         <a href="ejercicio22.php">Ejercicio 22</a><br/>
-        <a href="ejercicio23.php">Ejercicio 23</a><br/>
+        <a href="ejercicio23.php">Ejercicio 23 (sesiones)</a><br/>
         <a href="ejercicio24.php">Ejercicio 24</a><br/>
         <a href="ejercicio25.php">Ejercicio 25</a><br/>
         <a href="ejercicio26.php">Ejercicio 26</a><br/>
